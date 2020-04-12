@@ -1,2 +1,2 @@
-# uis-cs478
+# uis-csc478
 Time Management Tool
