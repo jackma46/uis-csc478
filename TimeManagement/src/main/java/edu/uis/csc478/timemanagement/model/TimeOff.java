@@ -11,10 +11,11 @@ public class TimeOff {
 	private long id;
 	private LocalDate startDate;
 	private LocalDate endDate;
-	private long PTOrequested;
-	private long SickRequested;
-	private long UnpaidRequested;
+	private float PTOrequested;
+	private float SickRequested;
+	private float UnpaidRequested;
 	private Status status;
+	
 	public long getId() {
 		return id;
 	}
@@ -33,22 +34,22 @@ public class TimeOff {
 	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
-	public long getPTOrequested() {
+	public float getPTOrequested() {
 		return PTOrequested;
 	}
-	public void setPTOrequested(long pTOrequested) {
+	public void setPTOrequested(float pTOrequested) {
 		PTOrequested = pTOrequested;
 	}
-	public long getSickRequested() {
+	public float getSickRequested() {
 		return SickRequested;
 	}
-	public void setSickRequested(long sickRequested) {
+	public void setSickRequested(float sickRequested) {
 		SickRequested = sickRequested;
 	}
-	public long getUnpaidRequested() {
+	public float getUnpaidRequested() {
 		return UnpaidRequested;
 	}
-	public void setUnpaidRequested(long unpaidRequested) {
+	public void setUnpaidRequested(float unpaidRequested) {
 		UnpaidRequested = unpaidRequested;
 	}
 	public Status getStatus() {
@@ -56,6 +57,6 @@ public class TimeOff {
 	}
 	public void setStatus(Status status) {
 		this.status = status;
-	}	
-
+	}
+	
 }

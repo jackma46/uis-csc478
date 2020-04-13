@@ -9,11 +9,12 @@ public class Employee {
 	private String password;
 	private long managerID;
 	private LocalDate startDate;
-	private long accruedPTO;
-	private long usedPTO;
-	private long availableSick;
-	private long usedSick;
-	private long usedUnpaid;
+	private float accruedPTO;
+	private float usedPTO;
+	private float availableSick;
+	private float usedSick;
+	private float usedUnpaid;
+	
 	public long getId() {
 		return id;
 	}
@@ -44,34 +45,36 @@ public class Employee {
 	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
-	public long getAccruedPTO() {
+	public float getAccruedPTO() {
 		return accruedPTO;
 	}
-	public void setAccruedPTO(long accruedPTO) {
+	public void setAccruedPTO(float accruedPTO) {
 		this.accruedPTO = accruedPTO;
 	}
-	public long getUsedPTO() {
+	public float getUsedPTO() {
 		return usedPTO;
 	}
-	public void setUsedPTO(long usedPTO) {
+	public void setUsedPTO(float usedPTO) {
 		this.usedPTO = usedPTO;
 	}
-	public long getAvailableSick() {
+	public float getAvailableSick() {
 		return availableSick;
 	}
-	public void setAvailableSick(long availableSick) {
+	public void setAvailableSick(float availableSick) {
 		this.availableSick = availableSick;
 	}
-	public long getUsedSick() {
+	public float getUsedSick() {
 		return usedSick;
 	}
-	public void setUsedSick(long usedSick) {
+	public void setUsedSick(float usedSick) {
 		this.usedSick = usedSick;
 	}
-	public long getUsedUnpaid() {
+	public float getUsedUnpaid() {
 		return usedUnpaid;
 	}
-	public void setUsedUnpaid(long usedUnpaid) {
+	public void setUsedUnpaid(float usedUnpaid) {
 		this.usedUnpaid = usedUnpaid;
-	}	
+	}
+	
+
 }

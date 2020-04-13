@@ -13,6 +13,7 @@ public class TimeClock {
 	private LocalTime timeIn;
 	private LocalTime timeout;
 	private Status status;
+	
 	public long getId() {
 		return id;
 	}
