@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQLTest {
 
@@ -34,8 +38,44 @@ public class SQLTest {
                  + ", "+res.getString("REMARKS")); 
             }
             res.close();
+            
+            queryEmployee(connection);
+            
+//            String sql = "insert into Employee(id, name, password) values (100, 'Jack Ma', 'jack123')";
+//            Statement stmt = connection.createStatement();
+//            stmt.executeUpdate(sql);
+//            stmt.close();
+//            
+//            queryEmployee(connection);
         } finally {
         	connection.close();
         }
+    }
+    
+    private static void queryEmployee(Connection connection) throws SQLException {
+    	Statement stmt = connection.createStatement();
+        
+        String sql = "SELECT * FROM Employee";
+        ResultSet rs = stmt.executeQuery(sql);
+        
+        ResultSetMetaData rsmd = rs.getMetaData();
+        List<String> columnNames = new ArrayList<>();
+        for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+        	String name = rsmd.getColumnName(i);
+        	columnNames.add(name);
+        }
+        System.out.println();
+        for (String c : columnNames) {
+        	System.out.print(c + "    ");
+        }
+        System.out.println();
+        
+        while(rs.next()) {
+        	for (String c : columnNames) {
+            	System.out.print(rs.getObject(c) + "    ");
+            }
+        	System.out.println();
+        }
+        stmt.close();
     }
 }
