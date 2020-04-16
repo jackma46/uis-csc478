@@ -31,4 +31,5 @@ public class SpringBeanConfig {
         factoryBean.setDataSource(dataSource());
         return factoryBean.getObject();
     }
+    
 }

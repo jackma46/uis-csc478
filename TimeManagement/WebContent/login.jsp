@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Employee Time Clock and PTO Tool</title>
+<title>Employee Time Management Tool</title>
 
 </head>
 <body>
@@ -9,9 +9,16 @@
 		<h2>
 			Please Sign In <br> <br>
 		</h2>
-		<form action="welcome.html" method="post">
-		    <input type="submit" value="Sign In">
+		<form action="perform_login" method="post">
+			<label for="username">Employee ID</label>
+            <input type="text" id="username" name="username"/>
+            <br><br>        
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"/>    
+            <br><br> 
+		    <input type="submit" value="Login In">
 		</form>
+		
 	</div>
 </body>
 </html>

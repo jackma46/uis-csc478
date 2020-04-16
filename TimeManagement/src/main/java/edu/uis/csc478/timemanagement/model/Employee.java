@@ -1,6 +1,7 @@
 package edu.uis.csc478.timemanagement.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Employee {
 
@@ -8,7 +9,7 @@ public class Employee {
 	private String name;
 	private String password;
 	private long managerID;
-	private LocalDate startDate;
+	private Date startDate;
 	private float accruedPTO;
 	private float usedPTO;
 	private float availableSick;
@@ -39,10 +40,10 @@ public class Employee {
 	public void setManagerID(long managerID) {
 		this.managerID = managerID;
 	}
-	public LocalDate getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(LocalDate startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 	public float getAccruedPTO() {
