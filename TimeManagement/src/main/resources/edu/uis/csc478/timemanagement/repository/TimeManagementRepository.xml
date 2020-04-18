@@ -6,4 +6,7 @@
   <select id="findEmployeeById" resultType="edu.uis.csc478.timemanagement.model.Employee">
     select * from employee where id = #{id}
   </select>
+  <select id="findTodayTimeClockEntries" resultType="edu.uis.csc478.timemanagement.model.TimeClock">
+    select * from timeClock where id = #{id} and clockDate = convert(date,GETDATE())
+  </select>
 </mapper>

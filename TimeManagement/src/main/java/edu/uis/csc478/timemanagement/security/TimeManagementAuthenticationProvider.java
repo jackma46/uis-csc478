@@ -33,7 +33,7 @@ public class TimeManagementAuthenticationProvider implements AuthenticationProvi
         
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         if (employee.getManagerID() <= 0) {
-        	grantedAuthorities.add(() -> "MANAGE");
+        	grantedAuthorities.add(() -> "MANAGER");
         }
         return new UsernamePasswordAuthenticationToken(name, password, grantedAuthorities);
     }
