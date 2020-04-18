@@ -1,6 +1,5 @@
 package edu.uis.csc478.timemanagement.model;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Employee {
