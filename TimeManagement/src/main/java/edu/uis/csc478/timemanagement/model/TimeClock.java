@@ -1,6 +1,7 @@
 package edu.uis.csc478.timemanagement.model;
 
-import java.time.*;
+import java.sql.Date;
+import java.sql.Time;
 
 public class TimeClock {
 	
@@ -9,9 +10,9 @@ public class TimeClock {
 	}
 	
 	private long id;
-	private LocalDate date;
-	private LocalTime timeIn;
-	private LocalTime timeout;
+	private Date date;
+	private Time timeIn;
+	private Time timeout;
 	private Status status;
 	
 	public long getId() {
@@ -20,22 +21,23 @@ public class TimeClock {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public LocalDate getDate() {
+	
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(LocalDate date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	public LocalTime getTimeIn() {
+	public Time getTimeIn() {
 		return timeIn;
 	}
-	public void setTimeIn(LocalTime timeIn) {
+	public void setTimeIn(Time timeIn) {
 		this.timeIn = timeIn;
 	}
-	public LocalTime getTimeout() {
+	public Time getTimeout() {
 		return timeout;
 	}
-	public void setTimeout(LocalTime timeout) {
+	public void setTimeout(Time timeout) {
 		this.timeout = timeout;
 	}
 	public Status getStatus() {

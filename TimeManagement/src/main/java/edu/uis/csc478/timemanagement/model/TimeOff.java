@@ -1,5 +1,6 @@
 package edu.uis.csc478.timemanagement.model;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class TimeOff {
@@ -9,8 +10,8 @@ public class TimeOff {
 	}
 	
 	private long id;
-	private LocalDate startDate;
-	private LocalDate endDate;
+	private Date startDate;
+	private Date endDate;
 	private float PTOrequested;
 	private float SickRequested;
 	private float UnpaidRequested;
@@ -22,16 +23,17 @@ public class TimeOff {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public LocalDate getStartDate() {
+	
+	public Date getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(LocalDate startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	public LocalDate getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(LocalDate endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 	public float getPTOrequested() {

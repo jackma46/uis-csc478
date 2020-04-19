@@ -1,6 +1,6 @@
 package edu.uis.csc478.timemanagement.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Employee {
 

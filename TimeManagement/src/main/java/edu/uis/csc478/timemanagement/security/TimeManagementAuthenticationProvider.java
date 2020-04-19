@@ -32,6 +32,7 @@ public class TimeManagementAuthenticationProvider implements AuthenticationProvi
         }
         
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        grantedAuthorities.add(() -> "EMPLOYEE");
         if (employee.getManagerID() <= 0) {
         	grantedAuthorities.add(() -> "MANAGER");
         }
