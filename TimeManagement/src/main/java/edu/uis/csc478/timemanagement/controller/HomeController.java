@@ -27,7 +27,7 @@ public class HomeController {
 		Collection<GrantedAuthority> authorities = user.getAuthorities();
 		for (GrantedAuthority a : authorities) {
 			if ("MANAGER".equals(a.getAuthority()))
-				return new ModelAndView("employee_login_screen_ClockIn");
+				return new ModelAndView("employee_login_screen_ClockOut");
 		}
 		
 		long id = Long.parseLong(user.getName());
@@ -39,4 +39,42 @@ public class HomeController {
 
 		return new ModelAndView("employee_login_screen_ClockIn");
 	}
+	
+//	@RequestMapping("/employee_login_screen_ClockIn")
+//	public ModelAndView clockIn() {
+//		
+//	}
+//	
+//	@RequestMapping("/employee_login_screen_ClockOut")
+//	public ModelAndView clockOut() {
+//		
+//	}
+//	
+//	@RequestMapping("/employee_")
+//	
+//	@RequestMapping("/manager/home")
+//	public ModelAndView managerHome() {
+//		
+//	}
+//	
+//	@RequestMapping("manager/select_timeclock")
+//	public ModelAndView selectTimeClock() {
+//		
+//	}
+//	
+//	@RequestMapping("manager/approve_timeclock")
+//	public ModelAndView approveTimeClock() {
+//		
+//	}
+//	
+//	@RequestMapping("manager/select_timeoff")
+//	public ModelAndView selectTimeOff() {
+//		
+//	}
+//	
+//	@RequestMapping("manager/approve_timeoff")
+//	public ModelAndView approveTimeOff() {
+//		
+//	}
+	
 }
