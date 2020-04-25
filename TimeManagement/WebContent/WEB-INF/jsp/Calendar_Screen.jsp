@@ -76,7 +76,8 @@ function goBack() {
 <div id="calendar_opt_buttons">
 		 <div class="img">
 		 <center>
-		 <button type="button" id="saveBtn" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+		 <button type="button" id="saveBtn" class="btn btn-primary" data-dismiss="modal">Confirm</button>
+		 	<a href="employee_hours_log_view.html"><img src="MixCalender.png"/a>
 		    <a href="perform_logout"><img src="img\MixHomeIcon.png"></a>
 			<a id="myLink" href="#" onclick="goBack();return false;"><img src="img\MixBackArrow.png"></a>
 			

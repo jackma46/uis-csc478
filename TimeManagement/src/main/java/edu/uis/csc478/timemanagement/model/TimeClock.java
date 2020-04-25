@@ -2,6 +2,7 @@ package edu.uis.csc478.timemanagement.model;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 
 public class TimeClock {
 	
@@ -10,7 +11,7 @@ public class TimeClock {
 	}
 	
 	private long id;
-	private Date date;
+	private Date clockDate;
 	private Time timeIn;
 	private Time timeOut;
 	private Status status;
@@ -23,10 +24,10 @@ public class TimeClock {
 	}
 	
 	public Date getDate() {
-		return date;
+		return clockDate;
 	}
 	public void setDate(Date date) {
-		this.date = date;
+		this.clockDate = date;
 	}
 	public Time getTimeIn() {
 		return timeIn;
@@ -47,4 +48,9 @@ public class TimeClock {
 		this.status = status;
 	}	
 	
+	public String getFormattedDate() {
+	    SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+	    String formattedDate = df.format(clockDate);
+		return formattedDate;
+	}
 }

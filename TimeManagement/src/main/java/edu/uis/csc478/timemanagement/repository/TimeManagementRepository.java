@@ -1,5 +1,6 @@
 package edu.uis.csc478.timemanagement.repository;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -16,6 +17,7 @@ public interface TimeManagementRepository {
 	int insertTimeClockIn(TimeClock timeClock);
 	
 	int insertTimeClockOut(TimeClock timeClock);
+	
+	TimeClock getTimeClock(@Param("id") long id, @Param("date") Date date);
 
 }
-;

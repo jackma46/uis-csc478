@@ -34,10 +34,16 @@
 </div>
 </h2>
 <div class="zoomed">
-<h4 id="headline">Employee Name
-</div>
+<h4 id="headline">Employee Name</h4>
 
-</h4>
+</div>
+<table>
+<tr><th>Date: </th><td>${timeClock.formattedDate}</td></tr>
+<tr><th>Time In: </th><td>${timeClock.timeIn}</td></tr>
+<tr><th>Time Out: </th><td>${timeClock.timeOut}</td></tr>
+<tr><th>Status: </th><td>${timeClock.status}</td></tr>
+</table>
+
 
 </body>
 
