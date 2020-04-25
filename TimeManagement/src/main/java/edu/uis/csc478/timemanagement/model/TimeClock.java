@@ -5,7 +5,7 @@ import java.sql.Time;
 
 public class TimeClock {
 	
-	enum Status{
+	public enum Status{
 		SUBMITTED, APPROVED, UNFINISHED, ERROR
 	}
 	

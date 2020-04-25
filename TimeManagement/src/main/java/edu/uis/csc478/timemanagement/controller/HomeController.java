@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,14 +22,14 @@ public class HomeController {
 	@RequestMapping("/welcome")
 	public ModelAndView home() {
 		
-		UsernamePasswordAuthenticationToken user = (UsernamePasswordAuthenticationToken)SecurityContextHolder.getContext().getAuthentication();
+		UsernamePasswordAuthenticationToken user = TimeManagementUtil.getCurrentUser();
 		Collection<GrantedAuthority> authorities = user.getAuthorities();
 		for (GrantedAuthority a : authorities) {
 			if ("MANAGER".equals(a.getAuthority()))
 				return new ModelAndView("employee_login_screen_ClockOut");
 		}
 		
-		long id = Long.parseLong(user.getName());
+		long id = TimeManagementUtil.getCurrentUserId();
 		List<TimeClock> entries = timeManagementRepository.findTodayTimeClockEntries(id);
 		for (TimeClock tc : entries) {
 			if (tc.getTimeout() == null)
@@ -39,11 +38,6 @@ public class HomeController {
 
 		return new ModelAndView("employee_login_screen_ClockIn");
 	}
-	
-//	@RequestMapping("/employee_login_screen_ClockIn")
-//	public ModelAndView clockIn() {
-//		
-//	}
 //	
 //	@RequestMapping("/employee_login_screen_ClockOut")
 //	public ModelAndView clockOut() {
