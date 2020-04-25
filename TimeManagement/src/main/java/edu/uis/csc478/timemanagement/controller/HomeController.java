@@ -32,7 +32,7 @@ public class HomeController {
 		long id = TimeManagementUtil.getCurrentUserId();
 		List<TimeClock> entries = timeManagementRepository.findTodayTimeClockEntries(id);
 		for (TimeClock tc : entries) {
-			if (tc.getTimeout() == null)
+			if (tc.getTimeOut() == null)
 				return new ModelAndView("employee_login_screen_ClockOut");
 		}		
 

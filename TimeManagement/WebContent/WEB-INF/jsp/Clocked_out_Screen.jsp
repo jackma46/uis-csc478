@@ -21,21 +21,8 @@
 </header>
 
 <body>
-<h2>
-<script language="javascript">
 
-  var date = new Date();
-  document.write(formatAMPM(date) + "<br>");
-  
-  setTimeout(function(){
-            window.location.href = 'employee_login_screen_ClockIn.jsp';
-         }, 5000);
- 
-  </script>
-  
-  <p>Clock-out successfull! Have a great day!</p>
-  
-</h2>
+
 
 
 
@@ -44,6 +31,22 @@
 
 
 </h5>
+
+<h2>
+<script language="javascript">
+
+  var date = new Date();
+  document.write(formatAMPM(date) + "<br>");
+  
+  setTimeout(function(){
+            window.location.href = 'perform_logout';
+         }, 5000);
+ 
+  </script>
+  
+  <p>Clock-out successfull! Have a great day!</p>
+  
+</h2>
 
 </body>
 

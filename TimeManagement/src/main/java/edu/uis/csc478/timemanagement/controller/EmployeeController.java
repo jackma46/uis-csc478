@@ -22,9 +22,27 @@ public class EmployeeController {
 		timeClock.setDate(TimeManagementUtil.getCurrentDate());
 		timeClock.setTimeIn(TimeManagementUtil.getCurrentTime());
 		timeClock.setStatus(TimeClock.Status.UNFINISHED);
-		timeManagementRepository.insertTimeClock(timeClock);
+		timeManagementRepository.insertTimeClockIn(timeClock);
 		
 		return new ModelAndView("Clocked_in_Screen");
 	}
+	
+	@RequestMapping("/Clocked_out_Screen")
+	public ModelAndView clockOut() {
+		long id = TimeManagementUtil.getCurrentUserId();
+		TimeClock timeClock = new TimeClock();
+		timeClock.setId(id);
+		timeClock.setDate(TimeManagementUtil.getCurrentDate());
+		timeClock.setTimeOut(TimeManagementUtil.getCurrentTime());
+		timeClock.setStatus(TimeClock.Status.SUBMITTED);
+		timeManagementRepository.insertTimeClockOut(timeClock);
+		
+		return new ModelAndView("Clocked_out_Screen");		
+	}
 
+	@RequestMapping("/Calendar_Screen")
+	public ModelAndView viewCalendar() {
+		
+		return new ModelAndView("Calendar_Screen");
+	}
 }

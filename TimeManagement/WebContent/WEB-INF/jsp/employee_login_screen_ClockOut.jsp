@@ -37,9 +37,9 @@
  
         <div id="employee_opt_buttons">
 		 <div class="img">
-		    <a href="Clocked_in_screen.jsp"><img src="img\MixClockIn.png"></a>
-		    <a href="Calendar_Screen.jsp"><img src="img\MixCalender.png"></a>
-		    <a href="Logging_out_Screen.jsp"><img src="img\MixHomeIcon.png"></a>
+		    <a href="Clocked_out_Screen.html"><img src="img\MixClockOut.png"></a>
+		    <a href="Calendar_Screen.htnml"><img src="img\MixCalender.png"></a>
+		    <a href="perform_logout"><img src="img\MixHomeIcon.png"></a>
 		 </div>
 		</div>
 		</div>

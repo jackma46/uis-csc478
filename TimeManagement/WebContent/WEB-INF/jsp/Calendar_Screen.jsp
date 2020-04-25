@@ -76,8 +76,8 @@ function goBack() {
 <div id="calendar_opt_buttons">
 		 <div class="img">
 		 <center>
-		 <button type="button" id="saveBtn" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-		    <a href="Logging_out_Screen.jsp"><img src="img\MixHomeIcon.png"></a>
+		 <button type="button" id="saveBtn" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+		    <a href="perform_logout"><img src="img\MixHomeIcon.png"></a>
 			<a id="myLink" href="#" onclick="goBack();return false;"><img src="img\MixBackArrow.png"></a>
 			
 		 </center>

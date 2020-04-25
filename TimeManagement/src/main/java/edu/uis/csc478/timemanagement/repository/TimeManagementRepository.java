@@ -13,6 +13,9 @@ public interface TimeManagementRepository {
 	
 	List<TimeClock> findTodayTimeClockEntries(@Param("id") long id);
 	
-	int insertTimeClock(TimeClock timeClock);
+	int insertTimeClockIn(TimeClock timeClock);
+	
+	int insertTimeClockOut(TimeClock timeClock);
 
 }
+;

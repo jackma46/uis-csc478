@@ -8,10 +8,14 @@
   </select>
   <select id="findTodayTimeClockEntries" resultType="edu.uis.csc478.timemanagement.model.TimeClock">
     select * from timeClock where id = #{id} and clockDate = convert(date,GETDATE())
-  </select>
-  
-  <insert id="insertTimeClock" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
+  </select>  
+  <insert id="insertTimeClockIn" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
     insert into TimeClock(id, clockDate, timeIn, status)
     values (#{id}, #{date}, #{timeIn}, #{status})
   </insert>
+    <update id="insertTimeClockOut" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
+    update TimeClock
+    set timeOut = #{timeOut}, status = #{status}
+    where id = #{id} and clockDate = #{date} and timeOut is null
+  </update>
 </mapper>

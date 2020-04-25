@@ -6,13 +6,13 @@ import java.sql.Time;
 public class TimeClock {
 	
 	public enum Status{
-		SUBMITTED, APPROVED, UNFINISHED, ERROR
+		SUBMITTED, APPROVED, UNFINISHED
 	}
 	
 	private long id;
 	private Date date;
 	private Time timeIn;
-	private Time timeout;
+	private Time timeOut;
 	private Status status;
 	
 	public long getId() {
@@ -34,11 +34,11 @@ public class TimeClock {
 	public void setTimeIn(Time timeIn) {
 		this.timeIn = timeIn;
 	}
-	public Time getTimeout() {
-		return timeout;
+	public Time getTimeOut() {
+		return timeOut;
 	}
-	public void setTimeout(Time timeout) {
-		this.timeout = timeout;
+	public void setTimeOut(Time timeOut) {
+		this.timeOut = timeOut;
 	}
 	public Status getStatus() {
 		return status;
