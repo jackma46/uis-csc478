@@ -17,6 +17,12 @@ public class TimeManagementUtil {
 		return (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
 	}
 	
+	public static String getCurrentUserName() {
+		UsernamePasswordAuthenticationToken auth = 
+				(UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+		return (String) auth.getDetails();
+	}
+	
 	public static long getCurrentUserId() {
 		return Long.parseLong(getCurrentUser().getName());
 	}
@@ -27,6 +33,10 @@ public class TimeManagementUtil {
 	
 	public static Time getCurrentTime() {
 		return Time.valueOf(LocalTime.now(TM_ZONE));
+	}
+	
+	public static boolean isBlank(String s) {
+		return s == null || s.trim().length() == 0;
 	}
 	
 }

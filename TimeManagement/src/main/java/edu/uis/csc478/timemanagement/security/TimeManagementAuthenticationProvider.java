@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 
+import edu.uis.csc478.timemanagement.controller.TimeManagementUtil;
 import edu.uis.csc478.timemanagement.model.Employee;
 import edu.uis.csc478.timemanagement.repository.TimeManagementRepository;
 
@@ -25,8 +26,17 @@ public class TimeManagementAuthenticationProvider implements AuthenticationProvi
   
         String name = authentication.getName();
         String password = authentication.getCredentials().toString();
+        if (TimeManagementUtil.isBlank(name) || TimeManagementUtil.isBlank(password)) {
+        	return null;
+        }
+        long id;
+        try {
+        	id = Long.parseLong(name.trim());
+        } catch (Exception ex) {
+        	return null;
+        }
         
-        Employee employee = timeManagementRepository.findEmployeeById(Long.parseLong(name));
+        Employee employee = timeManagementRepository.findEmployeeById(id);
         if (employee == null || (! password.equals(employee.getPassword()))) {
         	return null;
         }
@@ -36,7 +46,10 @@ public class TimeManagementAuthenticationProvider implements AuthenticationProvi
         if (employee.getManagerID() <= 0) {
         	grantedAuthorities.add(() -> "MANAGER");
         }
-        return new UsernamePasswordAuthenticationToken(name, password, grantedAuthorities);
+        UsernamePasswordAuthenticationToken auth = 
+        		new UsernamePasswordAuthenticationToken(name, password, grantedAuthorities);
+        auth.setDetails(employee.getName());
+        return auth;
     }
 	
 	@Override
