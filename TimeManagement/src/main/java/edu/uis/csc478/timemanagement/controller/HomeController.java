@@ -27,7 +27,7 @@ public class HomeController {
 		Collection<GrantedAuthority> authorities = user.getAuthorities();
 		for (GrantedAuthority a : authorities) {
 			if ("MANAGER".equals(a.getAuthority()))
-				return new ModelAndView("employee_login_screen_ClockOut");
+				return TimeManagementUtil.buildModelAndView("employee_login_screen_ClockOut");
 		}
 		
 		long id = TimeManagementUtil.getCurrentUserId();
@@ -35,10 +35,10 @@ public class HomeController {
 		List<TimeClock> entries = timeManagementRepository.findTimeClockEntries(id, today);
 		for (TimeClock tc : entries) {
 			if (tc.getTimeOut() == null)
-				return new ModelAndView("employee_login_screen_ClockOut");
+				return TimeManagementUtil.buildModelAndView("employee_login_screen_ClockOut");
 		}		
 
-		return new ModelAndView("employee_login_screen_ClockIn");
+		return TimeManagementUtil.buildModelAndView("employee_login_screen_ClockIn");
 	}
 //	
 //	@RequestMapping("/employee_login_screen_ClockOut")
