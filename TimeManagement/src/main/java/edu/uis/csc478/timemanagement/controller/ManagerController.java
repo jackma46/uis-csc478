@@ -11,5 +11,5 @@ public class ManagerController {
 	@Autowired
 	private TimeManagementRepository timeManagementRepository;
 	
-	
+	//@RequestMapping("/manager/")
 }

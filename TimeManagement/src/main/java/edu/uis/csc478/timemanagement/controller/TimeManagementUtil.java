@@ -48,7 +48,7 @@ public class TimeManagementUtil {
 	}
 	
 	public static ModelAndView buildModelAndView(String jsp, String modelName, Object model) {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		TimeManagementContext context = new TimeManagementContext();
 		context.setCurrentDate(df.format(getCurrentDate()));
 		context.setCurrentTime(getCurrentTime().toString());
@@ -62,4 +62,12 @@ public class TimeManagementUtil {
 		return new ModelAndView(jsp, data);
 	}
 	
+	public static Date sqlDate (String s) {
+		try {
+			return Date.valueOf(s);
+		}
+		catch (Exception e) {
+			return null;
+		}
+	}	
 }

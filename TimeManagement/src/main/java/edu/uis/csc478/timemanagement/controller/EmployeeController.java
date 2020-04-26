@@ -5,7 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.uis.csc478.timemanagement.model.Employee;
@@ -60,13 +63,30 @@ public class EmployeeController {
 		return TimeManagementUtil.buildModelAndView("employee_hours_log_view", "timeClocks", timeClocks);
 	}
 	
-	@RequestMapping("/employee_timeoff_request")
-	public ModelAndView requestTimeOff() {
-			long id = TimeManagementUtil.getCurrentUserId();
-			Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
-			
-			return new ModelAndView("employee_timeoff_request", "employeeInfo", employeeInfo);		
+	@GetMapping("/employee_timeoff_request")
+	public ModelAndView showRequestTimeOff(){		
+		long id = TimeManagementUtil.getCurrentUserId();
+		Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
+		
+		return TimeManagementUtil.buildModelAndView("employee_timeoff_request", "employeeInfo", employeeInfo);
 	}
+	
+	@PostMapping("/employee_timeoff_request")
+	public ModelAndView handleRequestTimeOff(
+			@RequestParam(name="startDate") String startDate,
+			@RequestParam(name="endDate") String endDate) {
+		
+			Date sDate = TimeManagementUtil.sqlDate(startDate);
+			Date eDate = TimeManagementUtil.sqlDate(endDate);
+			
+			if (sDate == null || eDate == null || sDate.compareTo(eDate) > 0) {
+				return showRequestTimeOff();
+			}
+			
+			
+			
+			return timeOffResult();		
+	}	
 	
 	@RequestMapping("/employee_timeoff_result")
 	public ModelAndView timeOffResult() {
@@ -76,7 +96,7 @@ public class EmployeeController {
 		year = year.substring(0, index-1);
 		List<TimeOff> timeOffRequest = timeManagementRepository.getTimeOffRequests(id, year);
 		
-		return new ModelAndView("employee_timeoff_result", "timeOffRequest", timeOffRequest);	
+		return TimeManagementUtil.buildModelAndView("employee_timeoff_result", "timeOffRequest", timeOffRequest);	
 		
 	}
 }
