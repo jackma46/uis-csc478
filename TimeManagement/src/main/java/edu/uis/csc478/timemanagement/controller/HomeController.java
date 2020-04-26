@@ -1,6 +1,5 @@
 package edu.uis.csc478.timemanagement.controller;
 
-import java.sql.Date;
 import java.util.Collection;
 import java.util.List;
 
@@ -27,18 +26,49 @@ public class HomeController {
 		Collection<GrantedAuthority> authorities = user.getAuthorities();
 		for (GrantedAuthority a : authorities) {
 			if ("MANAGER".equals(a.getAuthority()))
-				return new ModelAndView("manager");
+				return new ModelAndView("employee_login_screen_ClockOut");
 		}
 		
 		long id = TimeManagementUtil.getCurrentUserId();
-		Date today = TimeManagementUtil.getCurrentDate();
-		List<TimeClock> entries = timeManagementRepository.findTimeClockEntries(id, today);
+		List<TimeClock> entries = timeManagementRepository.findTodayTimeClockEntries(id);
 		for (TimeClock tc : entries) {
-			if (tc.getTimeOut() == null)
+			if (tc.getTimeout() == null)
 				return new ModelAndView("employee_login_screen_ClockOut");
 		}		
 
 		return new ModelAndView("employee_login_screen_ClockIn");
 	}
+//	
+//	@RequestMapping("/employee_login_screen_ClockOut")
+//	public ModelAndView clockOut() {
+//		
+//	}
+//	
+//	@RequestMapping("/employee_")
+//	
+//	@RequestMapping("/manager/home")
+//	public ModelAndView managerHome() {
+//		
+//	}
+//	
+//	@RequestMapping("manager/select_timeclock")
+//	public ModelAndView selectTimeClock() {
+//		
+//	}
+//	
+//	@RequestMapping("manager/approve_timeclock")
+//	public ModelAndView approveTimeClock() {
+//		
+//	}
+//	
+//	@RequestMapping("manager/select_timeoff")
+//	public ModelAndView selectTimeOff() {
+//		
+//	}
+//	
+//	@RequestMapping("manager/approve_timeoff")
+//	public ModelAndView approveTimeOff() {
+//		
+//	}
 	
 }

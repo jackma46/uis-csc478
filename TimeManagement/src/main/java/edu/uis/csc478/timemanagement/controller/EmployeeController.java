@@ -29,7 +29,7 @@ public class EmployeeController {
 		timeClock.setStatus(TimeClock.Status.UNFINISHED);
 		timeManagementRepository.insertTimeClockIn(timeClock);
 		
-		return new ModelAndView("Clocked_in_Screen");
+		return TimeManagementUtil.buildModelAndView("Clocked_in_Screen");
 	}
 	
 	@RequestMapping("/Clocked_out_Screen")
@@ -42,13 +42,13 @@ public class EmployeeController {
 		timeClock.setStatus(TimeClock.Status.SUBMITTED);
 		timeManagementRepository.insertTimeClockOut(timeClock);
 		
-		return new ModelAndView("Clocked_out_Screen");		
+		return TimeManagementUtil.buildModelAndView("Clocked_out_Screen");		
 	}
 
 	@RequestMapping("/Calendar_Screen")
 	public ModelAndView viewCalendar() {
 		
-		return new ModelAndView("Calendar_Screen");
+		return TimeManagementUtil.buildModelAndView("Calendar_Screen");
 	}
 	
 	@RequestMapping("/employee_hours_log_view")
@@ -57,7 +57,7 @@ public class EmployeeController {
 		Date date = TimeManagementUtil.getCurrentDate();
 		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date);		
 		
-		return new ModelAndView("employee_hours_log_view", "timeClocks", timeClocks);
+		return TimeManagementUtil.buildModelAndView("employee_hours_log_view", "timeClocks", timeClocks);
 	}
 	
 	@RequestMapping("/employee_timeoff_request")
