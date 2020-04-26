@@ -10,19 +10,26 @@ public class TimeClock {
 		SUBMITTED, APPROVED, REJECTED, UNFINISHED
 	}
 	
+	private long timeClockId;
 	private long id;
 	private Date clockDate;
 	private Time timeIn;
 	private Time timeOut;
 	private Status status;
 	
+	
+	public long getTimeClockId() {
+		return timeClockId;
+	}
+	public void setTimeClockId(long timeClockId) {
+		this.timeClockId = timeClockId;
+	}
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	
+	}	
 	public Date getDate() {
 		return clockDate;
 	}
@@ -46,7 +53,17 @@ public class TimeClock {
 	}
 	public void setStatus(Status status) {
 		this.status = status;
-	}	
+	}
+	
+	public static Status passStatus(String s) {
+		for (Status status : Status.values()) {
+			if (status.name().equalsIgnoreCase(s)) {
+				return status;
+			}
+		}
+		
+		return null;
+	}
 	
 	public String getFormattedDate() {
 	    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");

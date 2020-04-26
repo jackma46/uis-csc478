@@ -9,6 +9,7 @@ public class TimeOff {
 		REQUESTED, REJECTED, APPROVED
 	}
 	
+	private long timeOffId;
 	private long id;
 	private Date startDate;
 	private Date endDate;
@@ -16,6 +17,14 @@ public class TimeOff {
 	private float sickRequested;
 	private float unpaidRequested;
 	private Status status;
+	
+	
+	public long getTimeOffId() {
+		return timeOffId;
+	}
+	public void setTimeOffId(long timeOffId) {
+		this.timeOffId = timeOffId;
+	}
 	public long getId() {
 		return id;
 	}

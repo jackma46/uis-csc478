@@ -17,12 +17,16 @@ public interface TimeManagementRepository {
 	
 	int insertTimeClockOut(TimeClock timeClock);
 	
-	List<TimeClock> findTimeClockEntries(@Param("id") long id, @Param("date") Date date);
+	List<TimeClock> findTimeClockEntries(@Param("id") long id, @Param("date") Date date, 
+			@Param("managerId") long managerId, @Param("status") TimeClock.Status status);
 	
 	List<TimeOff> getTimeOffRequests(@Param("id") long id, @Param("year") String year);
 
 	int updateEmployeeTimeOff(@Param("id") long id, @Param("PTO") float PTO, @Param("sick") float sick, @Param("unpaid") float unpaid);
 
 	int insertTimeOffRequest(TimeOff timeOff);
+	
+	List<Employee> findSubordinates (@Param("id") long id);
 
 }
+ 

@@ -27,7 +27,7 @@ public class HomeController {
 		Collection<GrantedAuthority> authorities = user.getAuthorities();
 		for (GrantedAuthority a : authorities) {
 			if ("MANAGER".equals(a.getAuthority()))
-				return TimeManagementUtil.buildModelAndView("manager_welcome");
+				return TimeManagementUtil.buildModelAndView("redirect:manage/welcome.html");
 		}
 		
 		long id = TimeManagementUtil.getCurrentUserId();

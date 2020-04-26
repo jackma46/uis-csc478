@@ -48,7 +48,7 @@ public class TimeManagementAuthenticationProvider implements AuthenticationProvi
         }
         UsernamePasswordAuthenticationToken auth = 
         		new UsernamePasswordAuthenticationToken(name, password, grantedAuthorities);
-        auth.setDetails(employee.getName());
+        auth.setDetails(employee);
         return auth;
     }
 	

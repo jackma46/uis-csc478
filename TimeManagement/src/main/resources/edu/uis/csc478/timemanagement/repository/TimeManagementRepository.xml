@@ -7,8 +7,8 @@
     select * from employee where id = #{id}
   </select>
   <insert id="insertTimeClockIn" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
-    insert into TimeClock(id, clockDate, timeIn, status)
-    values (#{id}, #{clockDate}, #{timeIn}, #{status})
+    insert into TimeClock(timeClockId, id, clockDate, timeIn, status)
+    values (next value for seq_timeclockid, #{id}, #{clockDate}, #{timeIn}, #{status})
   </insert>
   <update id="insertTimeClockOut" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
     update TimeClock
@@ -16,7 +16,12 @@
     where id = #{id} and clockDate = #{clockDate} and timeOut is null
   </update>
   <select id="findTimeClockEntries" resultType="edu.uis.csc478.timemanagement.model.TimeClock">
-    select * from timeClock where id = #{id} and clockDate = #{date}
+    select t.* 
+      from timeClock t 
+     inner join employee e on e.id = t.id
+     where t.clockDate = #{date} and e.managerId = #{managerId}
+    <if test="id > 0"> and id = #{id}</if>
+    <if test="status != null"> and status = #{status}</if>
   </select>  
   <update id="updateEmployeeTimeOff" parameterType="map">
 	update Employee 
@@ -27,8 +32,12 @@
 		usedUnpaid = usedUnpaid + #{unpaid}
 	where id = #{id}
   </update>
-  <insert id="insertTimeClockIn" parameterType="edu.uis.csc478.timemanagement.model.TimeOff">
-	insert into TimeOff(id, startDate, endDate, ptoRequested, sickRequested, unpaidRequested, Status)
-	values (#{id}, #{startDate), #{endDate), #{ptoRequested}, #{sickRequested}, #{unpaidRequested}, #{status})
-  </insert>
+  <insert id="insertTimeOffRequest" parameterType="edu.uis.csc478.timemanagement.model.TimeOff">
+	insert into TimeOff(timeOffId, id, startDate, endDate, ptoRequested, sickRequested, unpaidRequested, Status)
+	values (next value for seq_timeoffid, #{id}, #{startDate), #{endDate), #{ptoRequested}, #{sickRequested}, #{unpaidRequested}, #{status})
+  </insert>  
+  <select id="findSubordinates" resultType="edu.uis.csc478.timemanagement.model.Employee">
+    select * from Employee where managerId = #{id} order by name
+  </select>  
+  
 </mapper>

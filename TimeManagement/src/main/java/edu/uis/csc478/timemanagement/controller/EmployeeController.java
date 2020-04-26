@@ -60,7 +60,8 @@ public class EmployeeController {
 	public ModelAndView displayLog() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		Date date = TimeManagementUtil.getCurrentDate();
-		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date);		
+		long managerId = TimeManagementUtil.getCurrentManagerId();
+		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date, managerId, null);		
 		
 		return TimeManagementUtil.buildModelAndView("employee_hours_log_view", "timeClocks", timeClocks);
 	}
