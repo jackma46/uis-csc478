@@ -12,12 +12,10 @@ public interface TimeManagementRepository {
 	
 	Employee findEmployeeById(@Param("id") long id);
 	
-	List<TimeClock> findTodayTimeClockEntries(@Param("id") long id);
-	
 	int insertTimeClockIn(TimeClock timeClock);
 	
 	int insertTimeClockOut(TimeClock timeClock);
 	
-	TimeClock getTimeClock(@Param("id") long id, @Param("date") Date date);
+	List<TimeClock> findTimeClockEntries(@Param("id") long id, @Param("date") Date date);
 
 }

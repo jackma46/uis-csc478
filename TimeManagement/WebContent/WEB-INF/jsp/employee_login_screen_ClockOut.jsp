@@ -38,7 +38,7 @@
         <div id="employee_opt_buttons">
 		 <div class="img">
 		    <a href="Clocked_out_Screen.html"><img src="img\MixClockOut.png"></a>
-		    <a href="Calendar_Screen.htnml"><img src="img\MixCalender.png"></a>
+		    <a href="Calendar_Screen.html"><img src="img\MixCalender.png"></a>
 		    <a href="perform_logout"><img src="img\MixHomeIcon.png"></a>
 		 </div>
 		</div>

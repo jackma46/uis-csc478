@@ -1,5 +1,6 @@
 package edu.uis.csc478.timemanagement.controller;
 
+import java.sql.Date;
 import java.util.Collection;
 import java.util.List;
 
@@ -30,7 +31,8 @@ public class HomeController {
 		}
 		
 		long id = TimeManagementUtil.getCurrentUserId();
-		List<TimeClock> entries = timeManagementRepository.findTodayTimeClockEntries(id);
+		Date today = TimeManagementUtil.getCurrentDate();
+		List<TimeClock> entries = timeManagementRepository.findTimeClockEntries(id, today);
 		for (TimeClock tc : entries) {
 			if (tc.getTimeOut() == null)
 				return new ModelAndView("employee_login_screen_ClockOut");

@@ -1,6 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
-</article>
 <header>
 	<meta charset="utf-8" />
 	<title>Employee Hours Log View</title>
@@ -37,11 +38,22 @@
 <h4 id="headline">Employee Name</h4>
 
 </div>
-<table>
-<tr><th>Date: </th><td>${timeClock.formattedDate}</td></tr>
-<tr><th>Time In: </th><td>${timeClock.timeIn}</td></tr>
-<tr><th>Time Out: </th><td>${timeClock.timeOut}</td></tr>
-<tr><th>Status: </th><td>${timeClock.status}</td></tr>
+<table border="1" cellpadding="5">
+   <caption><h2>List of Time Clocks</h2></caption>
+    <tr>
+      <th>Date</th>
+      <th>Time In</th>
+      <th>Time Out</th>
+      <th>Status</th>
+    </tr>
+    <c:forEach var="tm" items="${timeClocks}">
+        <tr>
+          <td>${tm.formattedDate}</td>
+          <td>${tm.timeIn}</td>
+          <td>${tm.timeOut}</td>
+          <td>${tm.status}</td>
+        </tr>
+    </c:forEach>
 </table>
 
 

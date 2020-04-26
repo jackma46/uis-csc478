@@ -1,6 +1,7 @@
 package edu.uis.csc478.timemanagement.controller;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,9 +53,9 @@ public class EmployeeController {
 	public ModelAndView displayLog() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		Date date = TimeManagementUtil.getCurrentDate();
-		TimeClock timeClock = timeManagementRepository.getTimeClock(id, date);
+		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date);
 		
 		
-		return new ModelAndView("employee_hours_log_view", "timeClock", timeClock);
+		return new ModelAndView("employee_hours_log_view", "timeClocks", timeClocks);
 	}
 }
