@@ -9,14 +9,21 @@ public class TimeOff {
 		REQUESTED, REJECTED, APPROVED
 	}
 	
+	private String year;
 	private long id;
 	private Date startDate;
 	private Date endDate;
 	private float PTOrequested;
 	private float SickRequested;
 	private float UnpaidRequested;
-	private Status status;
-	
+	private Status status;	
+		
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
 	public long getId() {
 		return id;
 	}

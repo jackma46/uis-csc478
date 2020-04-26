@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class TimeClock {
 	
 	public enum Status{
-		SUBMITTED, APPROVED, UNFINISHED
+		SUBMITTED, APPROVED, REJECTED, UNFINISHED
 	}
 	
 	private long id;
@@ -49,7 +49,7 @@ public class TimeClock {
 	}	
 	
 	public String getFormattedDate() {
-	    SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+	    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	    String formattedDate = df.format(clockDate);
 		return formattedDate;
 	}

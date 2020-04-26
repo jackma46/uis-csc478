@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.uis.csc478.timemanagement.model.Employee;
 import edu.uis.csc478.timemanagement.model.TimeClock;
+import edu.uis.csc478.timemanagement.model.TimeOff;
 import edu.uis.csc478.timemanagement.repository.TimeManagementRepository;
 
 @Controller
@@ -53,9 +55,28 @@ public class EmployeeController {
 	public ModelAndView displayLog() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		Date date = TimeManagementUtil.getCurrentDate();
-		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date);
-		
+		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date);		
 		
 		return new ModelAndView("employee_hours_log_view", "timeClocks", timeClocks);
+	}
+	
+	@RequestMapping("/employee_timeoff_request")
+	public ModelAndView requestTimeOff() {
+			long id = TimeManagementUtil.getCurrentUserId();
+			Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
+			
+			return new ModelAndView("employee_timeoff_request", "employeeInfo", employeeInfo);		
+	}
+	
+	@RequestMapping("/employee_timeoff_result")
+	public ModelAndView timeOffResult() {
+		long id = TimeManagementUtil.getCurrentUserId();
+		String year = TimeManagementUtil.getCurrentDate().toString();
+		int index = year.indexOf('-');
+		year = year.substring(0, index-1);
+		List<TimeOff> timeOffRequest = timeManagementRepository.getTimeOffRequests(id, year);
+		
+		return new ModelAndView("employee_timeoff_result", "timeOffRequest", timeOffRequest);	
+		
 	}
 }
