@@ -10,7 +10,7 @@
     insert into TimeClock(id, clockDate, timeIn, status)
     values (#{id}, #{clockDate}, #{timeIn}, #{status})
   </insert>
-    <update id="insertTimeClockOut" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
+  <update id="insertTimeClockOut" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
     update TimeClock
     set timeOut = #{timeOut}, status = #{status}
     where id = #{id} and clockDate = #{clockDate} and timeOut is null
@@ -18,4 +18,17 @@
   <select id="findTimeClockEntries" resultType="edu.uis.csc478.timemanagement.model.TimeClock">
     select * from timeClock where id = #{id} and clockDate = #{date}
   </select>  
+  <update id="updateEmployeeTimeOff" parameterType="map">
+	update Employee 
+	set availablePTO = availablePTO - #{PTO},
+		usedPTO = usedPTO + #{PTO},
+		availableSick = availableSick - #{sick},
+		usedSick = usedSick + #{sick},
+		usedUnpaid = usedUnpaid + #{unpaid}
+	where id = #{id}
+  </update>
+  <insert id="insertTimeClockIn" parameterType="edu.uis.csc478.timemanagement.model.TimeOff">
+	insert into TimeOff(id, startDate, endDate, ptoRequested, sickRequested, unpaidRequested, Status)
+	values (#{id}, #{startDate), #{endDate), #{ptoRequested}, #{sickRequested}, #{unpaidRequested}, #{status})
+  </insert>
 </mapper>

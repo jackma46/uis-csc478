@@ -1,6 +1,8 @@
 package edu.uis.csc478.timemanagement.controller;
 
 import java.sql.Date;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +76,9 @@ public class EmployeeController {
 	@PostMapping("/employee_timeoff_request")
 	public ModelAndView handleRequestTimeOff(
 			@RequestParam(name="startDate") String startDate,
-			@RequestParam(name="endDate") String endDate) {
+			@RequestParam(name="endDate") String endDate,
+			@RequestParam(name="PTO", defaultValue = "0") float PTO,
+			@RequestParam(name="Sick", defaultValue = "0") float sick) {
 		
 			Date sDate = TimeManagementUtil.sqlDate(startDate);
 			Date eDate = TimeManagementUtil.sqlDate(endDate);
@@ -82,8 +86,43 @@ public class EmployeeController {
 			if (sDate == null || eDate == null || sDate.compareTo(eDate) > 0) {
 				return showRequestTimeOff();
 			}
+						
+			LocalDate start = sDate.toLocalDate();
+			LocalDate end = eDate.toLocalDate();
 			
+			int days = 0;
+			while (!start.isAfter(end)) {
+				if (!(start.getDayOfWeek() == DayOfWeek.SATURDAY || start.getDayOfWeek() == DayOfWeek.SUNDAY)) {
+					days++;
+				}
+				start.plusDays(1);
+			}
 			
+			if (days == 0 || days < (PTO + sick)) {
+				return showRequestTimeOff();
+			}
+			
+			long id = TimeManagementUtil.getCurrentUserId();
+			Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
+			float availablePTO = employeeInfo.getAccruedPTO();
+			float availableSick = employeeInfo.getAvailableSick();
+			
+			if (availablePTO < PTO || availableSick < sick) {
+				return showRequestTimeOff();
+			}
+			
+			float unpaid = days * 8 - PTO - sick;
+			
+			TimeOff timeOff = new TimeOff();
+			timeOff.setId(id);
+			timeOff.setPtoRequested(PTO);
+			timeOff.setSickRequested(sick);
+			timeOff.setStartDate(sDate);
+			timeOff.setEndDate(eDate);
+			timeOff.setStatus(TimeOff.Status.REQUESTED);
+			
+			timeManagementRepository.updateEmployeeTimeOff(id, PTO, sick, unpaid);
+			timeManagementRepository.insertTimeOffRequest(timeOff);
 			
 			return timeOffResult();		
 	}	

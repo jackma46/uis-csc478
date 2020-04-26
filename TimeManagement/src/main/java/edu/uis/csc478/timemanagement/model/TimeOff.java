@@ -5,32 +5,23 @@ import java.time.LocalDate;
 
 public class TimeOff {
 	
-	enum Status{
+	public enum Status{
 		REQUESTED, REJECTED, APPROVED
 	}
 	
-	private String year;
 	private long id;
 	private Date startDate;
 	private Date endDate;
-	private float PTOrequested;
-	private float SickRequested;
-	private float UnpaidRequested;
-	private Status status;	
-		
-	public String getYear() {
-		return year;
-	}
-	public void setYear(String year) {
-		this.year = year;
-	}
+	private float ptoRequested;
+	private float sickRequested;
+	private float unpaidRequested;
+	private Status status;
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-	
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -43,29 +34,29 @@ public class TimeOff {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	public float getPTOrequested() {
-		return PTOrequested;
+	public float getPtoRequested() {
+		return ptoRequested;
 	}
-	public void setPTOrequested(float pTOrequested) {
-		PTOrequested = pTOrequested;
+	public void setPtoRequested(float ptoRequested) {
+		this.ptoRequested = ptoRequested;
 	}
 	public float getSickRequested() {
-		return SickRequested;
+		return sickRequested;
 	}
 	public void setSickRequested(float sickRequested) {
-		SickRequested = sickRequested;
+		this.sickRequested = sickRequested;
 	}
 	public float getUnpaidRequested() {
-		return UnpaidRequested;
+		return unpaidRequested;
 	}
 	public void setUnpaidRequested(float unpaidRequested) {
-		UnpaidRequested = unpaidRequested;
+		this.unpaidRequested = unpaidRequested;
 	}
 	public Status getStatus() {
 		return status;
 	}
 	public void setStatus(Status status) {
 		this.status = status;
-	}
-	
+	}			
+
 }

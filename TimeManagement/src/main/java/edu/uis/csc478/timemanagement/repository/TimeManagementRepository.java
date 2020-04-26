@@ -21,4 +21,8 @@ public interface TimeManagementRepository {
 	
 	List<TimeOff> getTimeOffRequests(@Param("id") long id, @Param("year") String year);
 
+	int updateEmployeeTimeOff(@Param("id") long id, @Param("PTO") float PTO, @Param("sick") float sick, @Param("unpaid") float unpaid);
+
+	int insertTimeOffRequest(TimeOff timeOff);
+
 }
