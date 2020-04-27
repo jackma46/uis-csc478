@@ -3,6 +3,8 @@ package edu.uis.csc478.timemanagement.model;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import edu.uis.csc478.timemanagement.model.TimeClock.Status;
+
 public class TimeOff {
 	
 	public enum Status{
@@ -11,6 +13,7 @@ public class TimeOff {
 	
 	private long timeOffId;
 	private long id;
+	private String name;
 	private Date startDate;
 	private Date endDate;
 	private float ptoRequested;
@@ -30,6 +33,12 @@ public class TimeOff {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public Date getStartDate() {
 		return startDate;
@@ -66,6 +75,16 @@ public class TimeOff {
 	}
 	public void setStatus(Status status) {
 		this.status = status;
-	}			
+	}
+	
+	public static Status passStatus(String s) {
+		for (Status status : Status.values()) {
+			if (status.name().equalsIgnoreCase(s)) {
+				return status;
+			}
+		}
+		
+		return null;
+	}
 
 }

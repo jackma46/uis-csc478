@@ -29,6 +29,7 @@ public class EmployeeController {
 		long id = TimeManagementUtil.getCurrentUserId();
 		TimeClock timeClock = new TimeClock();
 		timeClock.setId(id);
+		timeClock.setName(TimeManagementUtil.getCurrentUserName());
 		timeClock.setDate(TimeManagementUtil.getCurrentDate());
 		timeClock.setTimeIn(TimeManagementUtil.getCurrentTime());
 		timeClock.setStatus(TimeClock.Status.UNFINISHED);
@@ -83,8 +84,9 @@ public class EmployeeController {
 		
 			Date sDate = TimeManagementUtil.sqlDate(startDate);
 			Date eDate = TimeManagementUtil.sqlDate(endDate);
+			Date today = TimeManagementUtil.getCurrentDate();
 			
-			if (sDate == null || eDate == null || sDate.compareTo(eDate) > 0) {
+			if (sDate == null || eDate == null || sDate.compareTo(eDate) > 0 || sDate.compareTo(today) < 0) {
 				return showRequestTimeOff();
 			}
 						
@@ -104,7 +106,8 @@ public class EmployeeController {
 			}
 			
 			long id = TimeManagementUtil.getCurrentUserId();
-			Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
+			Employee employeeInfo = timeManagementRepository.findEmployeeById(id);
+			String employeeName = employeeInfo.getName();
 			float availablePTO = employeeInfo.getAccruedPTO();
 			float availableSick = employeeInfo.getAvailableSick();
 			
@@ -116,6 +119,7 @@ public class EmployeeController {
 			
 			TimeOff timeOff = new TimeOff();
 			timeOff.setId(id);
+			timeOff.setName(employeeName);
 			timeOff.setPtoRequested(PTO);
 			timeOff.setSickRequested(sick);
 			timeOff.setStartDate(sDate);
@@ -131,12 +135,10 @@ public class EmployeeController {
 	@RequestMapping("/employee_timeoff_result")
 	public ModelAndView timeOffResult() {
 		long id = TimeManagementUtil.getCurrentUserId();
-		String year = TimeManagementUtil.getCurrentDate().toString();
-		int index = year.indexOf('-');
-		year = year.substring(0, index-1);
-		List<TimeOff> timeOffRequest = timeManagementRepository.getTimeOffRequests(id, year);
+		long managerId = TimeManagementUtil.getCurrentManagerId();
+		List<TimeOff> timeOffRequests = timeManagementRepository.findTimeOffEntries(id, managerId, null);
 		
-		return TimeManagementUtil.buildModelAndView("employee_timeoff_result", "timeOffRequest", timeOffRequest);	
+		return TimeManagementUtil.buildModelAndView("employee_timeoff_result", "timeOffRequests", timeOffRequests);	
 		
 	}
 }

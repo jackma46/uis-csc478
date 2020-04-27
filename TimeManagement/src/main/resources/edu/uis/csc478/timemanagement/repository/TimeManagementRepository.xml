@@ -7,8 +7,8 @@
     select * from employee where id = #{id}
   </select>
   <insert id="insertTimeClockIn" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
-    insert into TimeClock(timeClockId, id, clockDate, timeIn, status)
-    values (next value for seq_timeclockid, #{id}, #{clockDate}, #{timeIn}, #{status})
+    insert into TimeClock(timeClockId, id, name, clockDate, timeIn, status)
+    values (next value for seq_timeclockid, #{id}, #{name}, #{clockDate}, #{timeIn}, #{status})
   </insert>
   <update id="insertTimeClockOut" parameterType="edu.uis.csc478.timemanagement.model.TimeClock">
     update TimeClock
@@ -22,7 +22,11 @@
      where t.clockDate = #{date} and e.managerId = #{managerId}
     <if test="id > 0"> and id = #{id}</if>
     <if test="status != null"> and status = #{status}</if>
-  </select>  
+  </select> 
+  <select id="findTimeClockEntry" resultType="edu.uis.csc478.timemanagement.model.TimeClock">
+    select * from timeClock 
+	where timeClockID = #{tcID}
+  </select> 
   <update id="updateEmployeeTimeOff" parameterType="map">
 	update Employee 
 	set availablePTO = availablePTO - #{PTO},
@@ -33,11 +37,31 @@
 	where id = #{id}
   </update>
   <insert id="insertTimeOffRequest" parameterType="edu.uis.csc478.timemanagement.model.TimeOff">
-	insert into TimeOff(timeOffId, id, startDate, endDate, ptoRequested, sickRequested, unpaidRequested, Status)
-	values (next value for seq_timeoffid, #{id}, #{startDate), #{endDate), #{ptoRequested}, #{sickRequested}, #{unpaidRequested}, #{status})
+	insert into TimeOff(timeOffId, id, name, startDate, endDate, ptoRequested, sickRequested, unpaidRequested, Status)
+	values (next value for seq_timeoffid, #{id}, #{name}, #{startDate), #{endDate), #{ptoRequested}, #{sickRequested}, #{unpaidRequested}, #{status})
   </insert>  
   <select id="findSubordinates" resultType="edu.uis.csc478.timemanagement.model.Employee">
     select * from Employee where managerId = #{id} order by name
-  </select>  
-  
+  </select> 
+  <update id="approveEmployeeTimeClock" parameterType="map">
+    update TimeClock
+    set status = #{status}
+    where timeClockID = #{tcID}
+  </update> 
+  <update id="approveEmployeeTimeOff" parameterType="map">
+    update TimeOff
+    set status = #{status}
+    where timeOffID = #{toID}
+  </update> 
+  <select id="findTimeOffEntries" resultType="edu.uis.csc478.timemanagement.model.TimeOff">
+    select * from timeOff
+     where managerId = #{managerId}
+    <if test="id > 0"> and id = #{id}</if>
+    <if test="status != null"> and status = #{status}</if>
+    order by startDate
+  </select>
+    <select id="findTimeClockEntry" resultType="edu.uis.csc478.timemanagement.model.TimeOff">
+    select * from timeOff 
+	where timeOffID = #{toID}
+  </select> 
 </mapper>

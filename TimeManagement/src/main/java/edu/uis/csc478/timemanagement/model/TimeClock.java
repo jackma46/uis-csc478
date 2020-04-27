@@ -12,6 +12,7 @@ public class TimeClock {
 	
 	private long timeClockId;
 	private long id;
+	private String name;
 	private Date clockDate;
 	private Time timeIn;
 	private Time timeOut;
@@ -29,7 +30,14 @@ public class TimeClock {
 	}
 	public void setId(long id) {
 		this.id = id;
-	}	
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public Date getDate() {
 		return clockDate;
 	}
