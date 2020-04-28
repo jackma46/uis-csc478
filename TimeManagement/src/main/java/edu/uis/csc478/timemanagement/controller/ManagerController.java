@@ -94,7 +94,7 @@ public class ManagerController {
 		return TimeManagementUtil.buildModelAndView("manager_display_timeoff", "timeOffs", timeOffs);
 	}
 	
-	@PostMapping("/manage/approve_timeOff")
+	@PostMapping("/manage/approve_timeoff")
 	public ModelAndView approveTimeOff(
 			@RequestParam(name="timeOffIds") List<Long> timeOffIds,
 			@RequestParam(name="newStatus") String newStatus) {
@@ -102,10 +102,14 @@ public class ManagerController {
 		List<TimeOff> timeOffs = new ArrayList<TimeOff>();
 		for (long toID : timeOffIds) {
 			timeManagementRepository.approveEmployeeTimeOff(toID, TimeOff.passStatus(newStatus));
-			timeOffs.add((TimeOff) timeManagementRepository.findTimeOffEntry(toID));
+			TimeOff to = timeManagementRepository.findTimeOffEntry(toID);
+			if (TimeOff.passStatus(newStatus) == TimeOff.Status.REJECTED) {
+				timeManagementRepository.refundTimeOff(to);
+			}			
+			timeOffs.add(to);			
 		}
 		
-		return TimeManagementUtil.buildModelAndView("manager_display_timeclock", "timeOffs", timeOffs);
+		return TimeManagementUtil.buildModelAndView("manager_display_timeoff", "timeOffs", timeOffs);
 	}
 	
 }

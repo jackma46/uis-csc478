@@ -33,12 +33,14 @@
 		usedPTO = usedPTO + #{PTO},
 		availableSick = availableSick - #{sick},
 		usedSick = usedSick + #{sick},
+		availableFloater = availableFloater - #{floater},
+		usedFloater = usedFloater + #{floater},
 		usedUnpaid = usedUnpaid + #{unpaid}
 	where id = #{id}
   </update>
   <insert id="insertTimeOffRequest" parameterType="edu.uis.csc478.timemanagement.model.TimeOff">
-	insert into TimeOff(timeOffId, id, name, startDate, endDate, ptoRequested, sickRequested, unpaidRequested, Status)
-	values (next value for seq_timeoffid, #{id}, #{name}, #{startDate), #{endDate), #{ptoRequested}, #{sickRequested}, #{unpaidRequested}, #{status})
+	insert into TimeOff(timeOffId, id, name, startDate, endDate, ptoRequested, sickRequested, floaterRequested, unpaidRequested, Status)
+	values (next value for seq_timeoffid, #{id}, #{name}, #{startDate), #{endDate), #{ptoRequested}, #{sickRequested}, #{floaterRequested}, #{unpaidRequested}, #{status})
   </insert>  
   <select id="findSubordinates" resultType="edu.uis.csc478.timemanagement.model.Employee">
     select * from Employee where managerId = #{id} order by name
@@ -64,4 +66,14 @@
     select * from timeOff 
 	where timeOffID = #{toID}
   </select> 
+  <update id="refundTimeOff" parameterType="edu.uis.csc478.timemanagement.model.TimeOff">
+    update Employee
+    set availablePTO = availablePTO + #{PTORequested}
+    	usedPTO = usedPTO - #{PTORequested}
+    	availableSick = availableSick + #{sickRequested},
+		usedSick = usedSick - #{sickRequested},
+		availableFloater = availableFloater + #{floaterRequested},
+		usedFloater = usedFloater - #{floaterRequested},
+    where id = #{id}
+  </update> 
 </mapper>

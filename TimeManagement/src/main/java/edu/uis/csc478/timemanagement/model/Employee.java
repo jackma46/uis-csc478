@@ -13,6 +13,8 @@ public class Employee {
 	private float usedPTO;
 	private float availableSick;
 	private float usedSick;
+	private float availableFloater;
+	private float usedFloater;
 	private float usedUnpaid;
 	
 	public long getId() {
@@ -68,6 +70,18 @@ public class Employee {
 	}
 	public void setUsedSick(float usedSick) {
 		this.usedSick = usedSick;
+	}
+	public float getAvailableFloater() {
+		return availableFloater;
+	}
+	public void setAvailableFloater(float availableFloater) {
+		this.availableFloater = availableFloater;
+	}
+	public float getUsedFloater() {
+		return usedFloater;
+	}
+	public void setUsedFloater(float usedFloater) {
+		this.usedFloater = usedFloater;
 	}
 	public float getUsedUnpaid() {
 		return usedUnpaid;

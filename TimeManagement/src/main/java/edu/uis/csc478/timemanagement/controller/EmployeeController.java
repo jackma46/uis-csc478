@@ -80,7 +80,8 @@ public class EmployeeController {
 			@RequestParam(name="startDate") String startDate,
 			@RequestParam(name="endDate") String endDate,
 			@RequestParam(name="PTO", defaultValue = "0") float PTO,
-			@RequestParam(name="Sick", defaultValue = "0") float sick) {
+			@RequestParam(name="sick", defaultValue = "0") float sick,
+			@RequestParam(name="floater", defaultValue = "0") float floater) {
 		
 			Date sDate = TimeManagementUtil.sqlDate(startDate);
 			Date eDate = TimeManagementUtil.sqlDate(endDate);
@@ -120,13 +121,14 @@ public class EmployeeController {
 			TimeOff timeOff = new TimeOff();
 			timeOff.setId(id);
 			timeOff.setName(employeeName);
-			timeOff.setPtoRequested(PTO);
-			timeOff.setSickRequested(sick);
 			timeOff.setStartDate(sDate);
 			timeOff.setEndDate(eDate);
+			timeOff.setPtoRequested(PTO);
+			timeOff.setSickRequested(sick);
+			timeOff.setFloaterRequested(floater);
 			timeOff.setStatus(TimeOff.Status.REQUESTED);
 			
-			timeManagementRepository.updateEmployeeTimeOff(id, PTO, sick, unpaid);
+			timeManagementRepository.updateEmployeeTimeOff(id, PTO, sick, floater, unpaid);
 			timeManagementRepository.insertTimeOffRequest(timeOff);
 			
 			return timeOffResult();		

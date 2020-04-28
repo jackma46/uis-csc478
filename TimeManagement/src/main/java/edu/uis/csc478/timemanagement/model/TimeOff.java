@@ -18,6 +18,7 @@ public class TimeOff {
 	private Date endDate;
 	private float ptoRequested;
 	private float sickRequested;
+	private float floaterRequested;
 	private float unpaidRequested;
 	private Status status;
 	
@@ -63,6 +64,12 @@ public class TimeOff {
 	}
 	public void setSickRequested(float sickRequested) {
 		this.sickRequested = sickRequested;
+	}
+	public float getFloaterRequested() {
+		return floaterRequested;
+	}
+	public void setFloaterRequested(float floaterRequested) {
+		this.floaterRequested = floaterRequested;
 	}
 	public float getUnpaidRequested() {
 		return unpaidRequested;

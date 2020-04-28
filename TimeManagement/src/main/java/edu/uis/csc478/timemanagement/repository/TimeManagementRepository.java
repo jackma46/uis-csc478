@@ -22,7 +22,7 @@ public interface TimeManagementRepository {
 	
 	TimeClock findTimeClockEntry(@Param("tcID") long tcID);
 
-	int updateEmployeeTimeOff(@Param("id") long id, @Param("PTO") float PTO, @Param("sick") float sick, @Param("unpaid") float unpaid);
+	int updateEmployeeTimeOff(@Param("id") long id, @Param("PTO") float PTO, @Param("sick") float sick, @Param("floater") float floater, @Param("unpaid") float unpaid);
 
 	int insertTimeOffRequest(TimeOff timeOff);
 	
@@ -35,6 +35,8 @@ public interface TimeManagementRepository {
 	List<TimeOff> findTimeOffEntries(@Param("employeeID") long employeeId, @Param("managerID") long managerId, @Param("status") TimeOff.Status status);
 	
 	TimeOff findTimeOffEntry(@Param("toID") long toID);
+	
+	int refundTimeOff(@Param("to") TimeOff to);
 
 }
  
