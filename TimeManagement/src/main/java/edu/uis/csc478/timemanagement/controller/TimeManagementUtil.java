@@ -15,6 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.uis.csc478.timemanagement.model.Employee;
 
+/**
+ * @author Jack Ma
+ * Part of UIS CSC 478 Team Grammers Project
+ * 
+ */
+
 public class TimeManagementUtil {
 	
 	private static final ZoneId TM_ZONE = ZoneId.of("America/Chicago");

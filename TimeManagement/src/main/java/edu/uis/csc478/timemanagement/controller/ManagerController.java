@@ -17,12 +17,18 @@ import edu.uis.csc478.timemanagement.model.TimeClock;
 import edu.uis.csc478.timemanagement.model.TimeOff;
 import edu.uis.csc478.timemanagement.repository.TimeManagementRepository;
 
+/**
+ * @author Jack Ma
+ * Part of UIS CSC 478 Team Grammers Project
+ * 
+ */
+
 @Controller
 public class ManagerController {
 
 	@Autowired
 	private TimeManagementRepository timeManagementRepository;
-	
+		
 	@RequestMapping("/manage/welcome")
 	public ModelAndView managerWelcome() {
 		
@@ -87,7 +93,7 @@ public class ManagerController {
 		
 		TimeOff.Status status = TimeOff.passStatus(statusInString);
 		long id = TimeManagementUtil.getCurrentUserId();
-		Date today = TimeManagementUtil.getCurrentDate();
+		//Date today = TimeManagementUtil.getCurrentDate();
 		
 		List<TimeOff> timeOffs = timeManagementRepository.findTimeOffEntries(employeeId, id, status);
 		

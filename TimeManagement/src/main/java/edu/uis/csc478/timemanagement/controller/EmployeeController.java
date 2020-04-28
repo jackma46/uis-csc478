@@ -18,6 +18,12 @@ import edu.uis.csc478.timemanagement.model.TimeClock;
 import edu.uis.csc478.timemanagement.model.TimeOff;
 import edu.uis.csc478.timemanagement.repository.TimeManagementRepository;
 
+/**
+ * @author Jack Ma
+ * Part of UIS CSC 478 Team Grammers Project
+ * 
+ */
+
 @Controller
 public class EmployeeController {
 	

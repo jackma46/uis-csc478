@@ -1,14 +1,11 @@
 package edu.uis.csc478.timemanagement.model;
 
-import java.sql.Date;
-
 public class Employee {
 
 	private long id;
 	private String name;
 	private String password;
 	private long managerID;
-	private Date startDate;
 	private float accruedPTO;
 	private float usedPTO;
 	private float availableSick;
@@ -40,12 +37,6 @@ public class Employee {
 	}
 	public void setManagerID(long managerID) {
 		this.managerID = managerID;
-	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
 	}
 	public float getAccruedPTO() {
 		return accruedPTO;
@@ -89,6 +80,4 @@ public class Employee {
 	public void setUsedUnpaid(float usedUnpaid) {
 		this.usedUnpaid = usedUnpaid;
 	}
-	
-
 }
