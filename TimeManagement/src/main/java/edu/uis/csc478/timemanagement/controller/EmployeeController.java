@@ -24,7 +24,7 @@ public class EmployeeController {
 	@Autowired
 	private TimeManagementRepository timeManagementRepository;
 	
-	@RequestMapping("/Clocked_in_Screen")
+	@RequestMapping("/clocked_in_screen")
 	public ModelAndView clockIn() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		TimeClock timeClock = new TimeClock();
@@ -35,10 +35,10 @@ public class EmployeeController {
 		timeClock.setStatus(TimeClock.Status.UNFINISHED);
 		timeManagementRepository.insertTimeClockIn(timeClock);
 		
-		return TimeManagementUtil.buildModelAndView("Clocked_in_Screen");
+		return TimeManagementUtil.buildModelAndView("clocked_in_screen");
 	}
 	
-	@RequestMapping("/Clocked_out_Screen")
+	@RequestMapping("/clocked_out_screen")
 	public ModelAndView clockOut() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		TimeClock timeClock = new TimeClock();
@@ -48,13 +48,13 @@ public class EmployeeController {
 		timeClock.setStatus(TimeClock.Status.SUBMITTED);
 		timeManagementRepository.insertTimeClockOut(timeClock);
 		
-		return TimeManagementUtil.buildModelAndView("Clocked_out_Screen");		
+		return TimeManagementUtil.buildModelAndView("clocked_out_screen");		
 	}
 
-	@RequestMapping("/Calendar_Screen")
+	@RequestMapping("/calendar_screen")
 	public ModelAndView viewCalendar() {
 		
-		return TimeManagementUtil.buildModelAndView("Calendar_Screen");
+		return TimeManagementUtil.buildModelAndView("calendar_screen");
 	}
 	
 	@RequestMapping("/employee_hours_log_view")

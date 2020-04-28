@@ -36,10 +36,10 @@ public class HomeController {
 		List<TimeClock> entries = timeManagementRepository.findTimeClockEntries(id, today, managerID, null);
 		for (TimeClock tc : entries) {
 			if (tc.getTimeOut() == null)
-				return TimeManagementUtil.buildModelAndView("employee_login_screen_ClockOut");
+				return TimeManagementUtil.buildModelAndView("employee_login_screen_clockout");
 		}		
 
-		return TimeManagementUtil.buildModelAndView("employee_login_screen_ClockIn");
+		return TimeManagementUtil.buildModelAndView("employee_login_screen_clockin");
 	}
 	
 }
