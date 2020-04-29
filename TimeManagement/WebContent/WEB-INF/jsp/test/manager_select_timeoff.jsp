@@ -37,8 +37,8 @@
 		<select id="status" name="status">
 			<option value="ALL">ALL</option>
 			<option value="APPROVED">APPROVED</option>
-			<option value="SUBMITTED">REJECTED</option>
-			<option value="UNFINISHED">REQUESTED</option>
+			<option value="REJECTED">REJECTED</option>
+			<option value="REQUESTED">REQUESTED</option>
 		</select>
 				
 	</form>
