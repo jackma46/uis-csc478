@@ -32,7 +32,23 @@ public class ManagerController {
 	@RequestMapping("/manage/welcome")
 	public ModelAndView managerWelcome() {
 		
-		return TimeManagementUtil.buildModelAndView("manage_welcome");
+		return TimeManagementUtil.buildModelAndView("manager_welcome");
+	}
+	
+	@RequestMapping("/manage/display_timeclocks")
+	public ModelAndView displayTimeClock() {
+		
+		long id = TimeManagementUtil.getCurrentUserId();
+		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(0, null, id, TimeClock.Status.SUBMITTED);		
+		return TimeManagementUtil.buildModelAndView("manager_displayTimeClocks", "timeClocks", timeClocks);
+	}
+	
+	@RequestMapping("manage/display_timeoffs")
+	public ModelAndView displayTimeOff() {
+		
+		long id = TimeManagementUtil.getCurrentUserId();
+		List<TimeOff> timeOffs = timeManagementRepository.findTimeOffEntries(0, id, TimeOff.Status.REQUESTED);
+		return TimeManagementUtil.buildModelAndView("manager_displayTimeOffs", "timeOffs", timeOffs);
 	}
 	
 	@GetMapping("/manage/select_timeclock")

@@ -24,7 +24,7 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    var dateFormat = "mm/dd/yy",
+    var dateFormat = "yy-mm-dd",
       from = $( "#from" )
         .datepicker({
           defaultDate: "+1w",
@@ -56,6 +56,9 @@
   } );
   </script>
 </head>
+<header>
+	<h1 id="headline"><b>Team Grammers</b></h1>
+</header>
 <body>
 	<br>
 	<div>

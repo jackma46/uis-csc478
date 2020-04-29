@@ -18,13 +18,16 @@
 	</style>
 
 </head>
+<header>
+<h1 id="headline"><b>Team Grammers</b></h1>
+</header>
+
 <body>
 	<br>
 	<br>
-	<b>Here are all your time off requests this year:</b><br>
 	<div>
 		<table border="1" cellpadding="5">
-   		<caption><b>List of Time Off Events</b></caption>
+   		<caption><b>List of Time Off Requests</b></caption>
     	<tr>
       		<th>Start Date</th>
       		<th>End Date</th>

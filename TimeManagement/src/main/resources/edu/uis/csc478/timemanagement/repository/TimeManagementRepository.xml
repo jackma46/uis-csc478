@@ -19,7 +19,8 @@
     select t.* 
       from timeClock t 
      inner join employee e on e.id = t.id
-     where t.clockDate = #{date} and e.managerId = #{managerId}
+     where e.managerId = #{managerId}
+    <if test="date != null">t.clockDate = #{date}</if>	
     <if test="id > 0"> and t.id = #{id}</if>
     <if test="status != null"> and t.status = #{status}</if>
   </select> 

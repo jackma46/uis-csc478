@@ -18,6 +18,11 @@
 	</style>
 
 </head>
+
+<header>
+<h1 id="headline"><b>Team Grammers</b></h1>
+</header>
+
 <body>
 	<br>
 	<br>

@@ -10,7 +10,7 @@
 	<title>Employee Clock In</title>
 	<style>
 		.buttons { 
-  			width: 25%;
+  			width: 30%;
  			table-layout: fixed;
  			border-collapse: collapse;
 

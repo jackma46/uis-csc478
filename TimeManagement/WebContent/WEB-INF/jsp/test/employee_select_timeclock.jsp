@@ -22,23 +22,29 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#datepicker" ).datepicker(
-    		dateFormat: "yy-mm-dd");
-  } );
+	    $( "#datepicker" ).datepicker();
+	    $( "#format" ).on( "change", function() {
+	      $( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+	    });
+	} );
   </script>
 	
 </head>
+<header>
+	<h1 id="headline"><b>Team Grammers</b></h1>
+</header>
 <body>
 	<br>
 	<br>
-	<b>Please select a date:</b><br>	
-	<input type="text" id="datepicker">
+	<form action="employee_display_timeclock.html" method=post id="form1">
+		<b>Please select a date:</b><br>	
+		<input type="text" id="datepicker" name="date">
+	</form>
+	<form action="welcome.html" id="form2"></form>
+	<form action="perform_logout" id="form3"></form>
 	<br>
 	<br>
     <div>
-    <form action="employee_display_timeclock.html" id="form1"></form>
-	<form action="welcome.html" id="form2"></form>
-	<form action="perform_logout" id="form3"></form>
 	<table class=buttons>
 	<tr>
 		<td><Button type="submit" form="form1">Confirm Date</Button>
