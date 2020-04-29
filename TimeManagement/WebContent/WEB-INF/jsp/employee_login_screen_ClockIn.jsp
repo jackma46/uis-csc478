@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-</article>
 <header>
 	<meta charset="utf-8" />
 	<title>Employee Login Screen/Clockin</title>
@@ -11,8 +10,7 @@
 
 			body {
             background-image: url('black-grey.png');
-			background-repeat: no-repeat;
-			background-size: 100%;
+
 			
 	        }
             </style>
