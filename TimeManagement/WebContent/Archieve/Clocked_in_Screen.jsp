@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-</article>
-<header>
-	<meta charset="utf-8" />
-	<title>Clocked in Screen</title>
-	<link rel="stylesheet" href="css\style.css" />
-    <script language="javascript" src="scripts\currenttime.js"></script>
-	
-	        <style>
 
-			body {
-            background-image: url('black-grey.png');
-			background-repeat: no-repeat;
-			background-size: 100%;
-			
-	        }
-            </style>
+<header>
+
 			<h1 id="headline">Company Name</h1>
 			
 </header>
@@ -53,5 +40,4 @@
 
 </footer>
 
-</article>
 </html>

@@ -30,7 +30,7 @@ public class EmployeeController {
 	@Autowired
 	private TimeManagementRepository timeManagementRepository;
 	
-	@RequestMapping("/clocked_in_screen")
+	@RequestMapping("/clocked_in")
 	public ModelAndView clockIn() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		TimeClock timeClock = new TimeClock();
@@ -41,10 +41,10 @@ public class EmployeeController {
 		timeClock.setStatus(TimeClock.Status.UNFINISHED);
 		timeManagementRepository.insertTimeClockIn(timeClock);
 		
-		return TimeManagementUtil.buildModelAndView("clocked_in_screen");
+		return TimeManagementUtil.buildModelAndView("clocked_in");
 	}
 	
-	@RequestMapping("/clocked_out_screen")
+	@RequestMapping("/clocked_out")
 	public ModelAndView clockOut() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		TimeClock timeClock = new TimeClock();
@@ -54,38 +54,38 @@ public class EmployeeController {
 		timeClock.setStatus(TimeClock.Status.SUBMITTED);
 		timeManagementRepository.insertTimeClockOut(timeClock);
 		
-		return TimeManagementUtil.buildModelAndView("clocked_out_screen");		
+		return TimeManagementUtil.buildModelAndView("clocked_out");		
 	}
 
-	@RequestMapping("/calendar_screen")
+	@RequestMapping("/employee_select_timeclock")
 	public ModelAndView viewCalendar() {
 		
-		return TimeManagementUtil.buildModelAndView("calendar_screen");
+		return TimeManagementUtil.buildModelAndView("employee_select_timeclock");
 	}
 	
-	@RequestMapping("/employee_hours_log_view")
+	@RequestMapping("/employee_display_timeclock")
 	public ModelAndView displayLog() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		Date date = TimeManagementUtil.getCurrentDate();
 		long managerId = TimeManagementUtil.getCurrentManagerId();
 		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date, managerId, null);		
 		
-		return TimeManagementUtil.buildModelAndView("employee_hours_log_view", "timeClocks", timeClocks);
+		return TimeManagementUtil.buildModelAndView("employee_display_timeclock", "timeClocks", timeClocks);
 	}
 	
-	@GetMapping("/employee_timeoff_request")
+	@GetMapping("/employee_request_timeoff")
 	public ModelAndView showRequestTimeOff(){		
 		long id = TimeManagementUtil.getCurrentUserId();
 		Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
 		
-		return TimeManagementUtil.buildModelAndView("employee_timeoff_request", "employeeInfo", employeeInfo);
+		return TimeManagementUtil.buildModelAndView("employee_request_timeoff", "employeeInfo", employeeInfo);
 	}
 	
 	@PostMapping("/employee_timeoff_request")
 	public ModelAndView handleRequestTimeOff(
 			@RequestParam(name="startDate") String startDate,
 			@RequestParam(name="endDate") String endDate,
-			@RequestParam(name="PTO", defaultValue = "0") float PTO,
+			@RequestParam(name="pto", defaultValue = "0") float PTO,
 			@RequestParam(name="sick", defaultValue = "0") float sick,
 			@RequestParam(name="floater", defaultValue = "0") float floater) {
 		
@@ -140,13 +140,13 @@ public class EmployeeController {
 			return timeOffResult();		
 	}	
 	
-	@RequestMapping("/employee_timeoff_result")
+	@RequestMapping("/employee_display_timeoff")
 	public ModelAndView timeOffResult() {
 		long id = TimeManagementUtil.getCurrentUserId();
 		long managerId = TimeManagementUtil.getCurrentManagerId();
 		List<TimeOff> timeOffRequests = timeManagementRepository.findTimeOffEntries(id, managerId, null);
 		
-		return TimeManagementUtil.buildModelAndView("employee_timeoff_result", "timeOffRequests", timeOffRequests);	
+		return TimeManagementUtil.buildModelAndView("employee_display_timeoff", "timeOffRequests", timeOffRequests);	
 		
 	}
 }

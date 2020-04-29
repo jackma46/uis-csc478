@@ -30,7 +30,7 @@ public class HomeController {
 	 * 
 	 * This connects any call to welcome.html, which is called once the user has logged in.
 	 * Depending on user's authority, user will be redirected to manager, or employee screen.
-	 * (user story 1.5 and 2.1)	 
+	 *  
 	 *  
 	 */		
 	@RequestMapping("/welcome")
@@ -46,13 +46,12 @@ public class HomeController {
 		long id = TimeManagementUtil.getCurrentUserId();
 		Date today = TimeManagementUtil.getCurrentDate();
 		long managerID = TimeManagementUtil.getCurrentManagerId();
-		List<TimeClock> entries = timeManagementRepository.findTimeClockEntries(id, today, managerID, null);
-		for (TimeClock tc : entries) {
-			if (tc.getTimeOut() == null)
-				return TimeManagementUtil.buildModelAndView("employee_login_screen_clockout");
+		List<TimeClock> entries = timeManagementRepository.findTimeClockEntries(id, today, managerID, TimeClock.Status.UNFINISHED);
+		if (!entries.isEmpty()) {
+				return TimeManagementUtil.buildModelAndView("employee_clockout");
 		}		
 
-		return TimeManagementUtil.buildModelAndView("employee_login_screen_clockin");
+		return TimeManagementUtil.buildModelAndView("employee_clockin");
 	}
 	
 }
