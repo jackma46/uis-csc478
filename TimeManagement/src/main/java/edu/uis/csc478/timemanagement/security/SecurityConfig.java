@@ -38,15 +38,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	          .anyRequest().permitAll()
           .and()
 	          .formLogin()
-	          .loginPage("/login.jsp")
+	          .loginPage("/login2.jsp")
 	          .loginProcessingUrl("/perform_login")
 	          .defaultSuccessUrl("/welcome.html", true)
-	          .failureUrl("/login.jsp?error=true")
+	          .failureUrl("/login2.jsp?error=true")
           .and()
 	          .logout()
 	          .logoutUrl("/perform_logout")
 	          .deleteCookies("JSESSIONID")
-	          .logoutSuccessUrl("/login.jsp");
+	          .logoutSuccessUrl("/login2.jsp");
     }
     
     @Bean

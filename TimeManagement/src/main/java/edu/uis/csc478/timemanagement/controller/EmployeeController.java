@@ -41,7 +41,7 @@ public class EmployeeController {
 		timeClock.setStatus(TimeClock.Status.UNFINISHED);
 		timeManagementRepository.insertTimeClockIn(timeClock);
 		
-		return TimeManagementUtil.buildModelAndView("clocked_in");
+		return TimeManagementUtil.buildModelAndView("test/clocked_in");
 	}
 	
 	@RequestMapping("/clocked_out")
@@ -60,7 +60,7 @@ public class EmployeeController {
 	@RequestMapping("/employee_select_timeclock")
 	public ModelAndView viewCalendar() {
 		
-		return TimeManagementUtil.buildModelAndView("employee_select_timeclock");
+		return TimeManagementUtil.buildModelAndView("test/employee_select_timeclock");
 	}
 	
 	@RequestMapping("/employee_display_timeclock")
@@ -70,7 +70,7 @@ public class EmployeeController {
 		long managerId = TimeManagementUtil.getCurrentManagerId();
 		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date, managerId, null);		
 		
-		return TimeManagementUtil.buildModelAndView("employee_display_timeclock", "timeClocks", timeClocks);
+		return TimeManagementUtil.buildModelAndView("test/employee_display_timeclock", "timeClocks", timeClocks);
 	}
 	
 	@GetMapping("/employee_request_timeoff")
@@ -78,7 +78,7 @@ public class EmployeeController {
 		long id = TimeManagementUtil.getCurrentUserId();
 		Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
 		
-		return TimeManagementUtil.buildModelAndView("employee_request_timeoff", "employeeInfo", employeeInfo);
+		return TimeManagementUtil.buildModelAndView("test/employee_request_timeoff", "employeeInfo", employeeInfo);
 	}
 	
 	@PostMapping("/employee_timeoff_request")
@@ -146,7 +146,7 @@ public class EmployeeController {
 		long managerId = TimeManagementUtil.getCurrentManagerId();
 		List<TimeOff> timeOffRequests = timeManagementRepository.findTimeOffEntries(id, managerId, null);
 		
-		return TimeManagementUtil.buildModelAndView("employee_display_timeoff", "timeOffRequests", timeOffRequests);	
+		return TimeManagementUtil.buildModelAndView("test/employee_display_timeoff", "timeOffRequests", timeOffRequests);	
 		
 	}
 }

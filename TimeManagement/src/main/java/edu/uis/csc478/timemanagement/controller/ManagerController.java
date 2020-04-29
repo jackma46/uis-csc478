@@ -32,23 +32,29 @@ public class ManagerController {
 	@RequestMapping("/manage/welcome")
 	public ModelAndView managerWelcome() {
 		
-		return TimeManagementUtil.buildModelAndView("manager_welcome");
+		return TimeManagementUtil.buildModelAndView("test/manager_welcome");
 	}
 	
-	@RequestMapping("/manage/display_timeclocks")
+	@GetMapping("/manage/approve_timeclock")
 	public ModelAndView displayTimeClock() {
 		
 		long id = TimeManagementUtil.getCurrentUserId();
 		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(0, null, id, TimeClock.Status.SUBMITTED);		
-		return TimeManagementUtil.buildModelAndView("manager_displayTimeClocks", "timeClocks", timeClocks);
+		return TimeManagementUtil.buildModelAndView("test/manager_display_timeclock", "timeClocks", timeClocks);
 	}
 	
-	@RequestMapping("manage/display_timeoffs")
-	public ModelAndView displayTimeOff() {
+	@PostMapping("/manage/approve_timeclock")
+	public ModelAndView approveTimeClock(
+			@RequestParam(name="timeClockID") List<Long> timeClockIds,
+			@RequestParam(name="newStatus") String newStatus) {
+
+		List<TimeClock> timeClocks = new ArrayList<TimeClock>();
+		for (long tcID : timeClockIds) {
+			timeManagementRepository.approveEmployeeTimeClock(tcID, TimeClock.passStatus(newStatus));
+			timeClocks.add((TimeClock) timeManagementRepository.findTimeClockEntry(tcID));
+		}
 		
-		long id = TimeManagementUtil.getCurrentUserId();
-		List<TimeOff> timeOffs = timeManagementRepository.findTimeOffEntries(0, id, TimeOff.Status.REQUESTED);
-		return TimeManagementUtil.buildModelAndView("manager_displayTimeOffs", "timeOffs", timeOffs);
+		return TimeManagementUtil.buildModelAndView("test/manager_display_timeclock", "timeClocks", timeClocks);
 	}
 	
 	@GetMapping("/manage/select_timeclock")
@@ -57,7 +63,7 @@ public class ManagerController {
 		long id = TimeManagementUtil.getCurrentUserId();
 		List<Employee> managed = timeManagementRepository.findSubordinates(id);
 		
-		return TimeManagementUtil.buildModelAndView("manager_select_timeclock", "managed", managed);
+		return TimeManagementUtil.buildModelAndView("test/manager_select_timeclock", "managed", managed);
 	}
 	
 	@PostMapping("/manage/select_timeclock")
@@ -76,45 +82,16 @@ public class ManagerController {
 		long id = TimeManagementUtil.getCurrentUserId();
 		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(employeeId, date, id, status);
 		
-		return TimeManagementUtil.buildModelAndView("manager_display_timeclock", "timeClocks", timeClocks);
+		return TimeManagementUtil.buildModelAndView("test/manager_display_timeclock", "timeClocks", timeClocks);
 	}
 	
-	@PostMapping("/manage/approve_timeclock")
-	public ModelAndView approveTimeClock(
-			@RequestParam(name="timeClockID") List<Long> timeClockIds,
-			@RequestParam(name="newStatus") String newStatus) {
-
-		List<TimeClock> timeClocks = new ArrayList<TimeClock>();
-		for (long tcID : timeClockIds) {
-			timeManagementRepository.approveEmployeeTimeClock(tcID, TimeClock.passStatus(newStatus));
-			timeClocks.add((TimeClock) timeManagementRepository.findTimeClockEntry(tcID));
-		}
-		
-		return TimeManagementUtil.buildModelAndView("manager_display_timeclock", "timeClocks", timeClocks);
-	}
-	
-	@GetMapping("/manage/select_timeoff")
-	public ModelAndView inputTimeOffParameters() {
+	@GetMapping("manage/approve_timeoff")
+	public ModelAndView displayTimeOff() {
 		
 		long id = TimeManagementUtil.getCurrentUserId();
-		List<Employee> managed = timeManagementRepository.findSubordinates(id);
-		
-		return TimeManagementUtil.buildModelAndView("manager_select_timeoff", "managed", managed);
-	}
-	
-	@PostMapping("/manage/select_timeoff")
-	public ModelAndView selectTimeOff(
-			@RequestParam(name="employeeID") long employeeId,
-			@RequestParam(name="status") String statusInString) {
-		
-		TimeOff.Status status = TimeOff.passStatus(statusInString);
-		long id = TimeManagementUtil.getCurrentUserId();
-		//Date today = TimeManagementUtil.getCurrentDate();
-		
-		List<TimeOff> timeOffs = timeManagementRepository.findTimeOffEntries(employeeId, id, status);
-		
-		return TimeManagementUtil.buildModelAndView("manager_display_timeoff", "timeOffs", timeOffs);
-	}
+		List<TimeOff> timeOffs = timeManagementRepository.findTimeOffEntries(0, id, TimeOff.Status.REQUESTED);
+		return TimeManagementUtil.buildModelAndView("test/manager_display_timeoff", "timeOffs", timeOffs);
+	}	
 	
 	@PostMapping("/manage/approve_timeoff")
 	public ModelAndView approveTimeOff(
@@ -131,7 +108,30 @@ public class ManagerController {
 			timeOffs.add(to);			
 		}
 		
-		return TimeManagementUtil.buildModelAndView("manager_display_timeoff", "timeOffs", timeOffs);
+		return TimeManagementUtil.buildModelAndView("test/manager_display_timeoff", "timeOffs", timeOffs);
+	}
+	
+	@GetMapping("/manage/select_timeoff")
+	public ModelAndView inputTimeOffParameters() {
+		
+		long id = TimeManagementUtil.getCurrentUserId();
+		List<Employee> managed = timeManagementRepository.findSubordinates(id);
+		
+		return TimeManagementUtil.buildModelAndView("test/manager_select_timeoff", "managed", managed);
+	}
+	
+	@PostMapping("/manage/select_timeoff")
+	public ModelAndView selectTimeOff(
+			@RequestParam(name="employeeID") long employeeId,
+			@RequestParam(name="status") String statusInString) {
+		
+		TimeOff.Status status = TimeOff.passStatus(statusInString);
+		long id = TimeManagementUtil.getCurrentUserId();
+		//Date today = TimeManagementUtil.getCurrentDate();
+		
+		List<TimeOff> timeOffs = timeManagementRepository.findTimeOffEntries(employeeId, id, status);
+		
+		return TimeManagementUtil.buildModelAndView("test/manager_display_timeoff", "timeOffs", timeOffs);
 	}
 	
 }

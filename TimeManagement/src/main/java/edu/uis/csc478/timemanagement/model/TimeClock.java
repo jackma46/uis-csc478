@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class TimeClock {
 	
 	public enum Status{
-		SUBMITTED, APPROVED, REJECTED, UNFINISHED
+		SUBMITTED, APPROVED, UNFINISHED
 	}
 	
 	private long timeClockId;

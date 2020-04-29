@@ -8,7 +8,7 @@
 	<title>Request Time Off</title>
 	<style>
 		.buttons { 
-  			width: 30%;
+  			width: 40%;
  			table-layout: fixed;
  			border-collapse: collapse;
 
@@ -107,7 +107,7 @@
 	<table class=buttons>
 	<tr>
 		<td><Button type="submit" form="form1">New Request</Button>
-		<td><Button type="submit" form="form2">Go Back</Button>
+		<td><Button type="submit" form="form2">Back To Home</Button>
 		<td><Button type="submit" form="form3">Log Out</Button>
 	</table>
 	</div>

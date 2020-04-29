@@ -48,10 +48,10 @@ public class HomeController {
 		long managerID = TimeManagementUtil.getCurrentManagerId();
 		List<TimeClock> entries = timeManagementRepository.findTimeClockEntries(id, today, managerID, TimeClock.Status.UNFINISHED);
 		if (!entries.isEmpty()) {
-				return TimeManagementUtil.buildModelAndView("employee_clockout");
+				return TimeManagementUtil.buildModelAndView("test/employee_clockout");
 		}		
 
-		return TimeManagementUtil.buildModelAndView("employee_clockin");
+		return TimeManagementUtil.buildModelAndView("test/employee_clockin");
 	}
 	
 }
