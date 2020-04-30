@@ -1,56 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>View Time clock</title>
-	<style>
-		.buttons { 
-  			width: 40%;
- 			table-layout: fixed;
- 			border-collapse: collapse;
-		}
-		.buttons button { 
-  			width: 100%;
-		}
-	</style>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-	    $( "#datepicker" ).datepicker();
-	    $( "#format" ).on( "change", function() {
-	      $( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
-	    });
-	} );
-  </script>
-	
-</head>
-<header>
-	<h1 id="headline"><b>Team Grammers</b></h1>
-</header>
-<body>
-	<br>
-	<br>
-	<form action="employee_display_timeclock.html" method=post id="form1">
-		<b>Please select a date:</b><br>	
-		<input type="text" id="datepicker" name="date">
-	</form>
-	<form action="welcome.html" id="form2"></form>
-	<form action="perform_logout" id="form3"></form>
-	<br>
-	<br>
-    <div>
-	<table class=buttons>
+<!--This is the employee select time clock page, the user should be able to pick a date from a drop down.
+	Requirement 2.2.1-->
+<form>
+	<p><b>Please select a date:</b><br>
+	<input type="text" id="datepicker" name="date">
+	</p>
+</form>
+<br>
+<br>
+<table class="layout-table">
 	<tr>
-		<td><Button type="submit" form="form1">Confirm Date</Button>
-		<td><Button type="submit" form="form2">Back To Home</Button>
-		<td><Button type="submit" form="form3">Log Out</Button>
-	</table>
-	</div>
-
-</body>
-</html>
+		<td>
+			<form action="employee_display_timeclock.html" id="form1">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixCheck.png">
+			</form>
+		</td>
+		<td>
+			<form action="welcome.html" id="form2">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixBackArrow.png">
+			</form>
+		</td>
+		<td>
+			<form action="perform_logout" id="form3">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixHomeIcon.png">
+			</form>
+		</td>
+	</tr>
+</table>

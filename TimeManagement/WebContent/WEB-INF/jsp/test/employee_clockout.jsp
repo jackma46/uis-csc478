@@ -1,54 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html lang="en">
-<header>
-	<h1 id="headline"><b>Team Grammers</b></h1>
-</header>
-<head>
-	<meta charset="ISO-8859-1">
-	<title>Employee Clock Out</title>
-	<style>
-		.buttons { 
-  			width: 30%;
- 			table-layout: fixed;
- 			border-collapse: collapse;
-		}
-		.buttons button { 
-  			width: 100%;
-		}
-	</style>
+<!--This is the employee clock out page, the user should see the option to clock out or access other modules. 
+	Requirement 2.0.0 & 2.1.0-->
 	
-</head>
-
-<body>
-		<br>
-		<br>
- 
-        <div>
-        <form action="clocked_in.html" id="form1"></form>
-		<form action="employee_select_timeclock.html" id="form2"></form>
-		<form action="employee_display_timeoff.html" id="form3"></form>
-		<form action="perform_logout" id="form4"></form>
-		<table class=buttons>
-		<tr>
-		<td><Button type="submit" form="form1">Clock Out</Button>
-		<td><Button type="submit" form="form2">View Time Clocks</Button>
-		<td><Button type="submit" form="form3">Time Off Requests</Button>
-		<td><Button type="submit" form="form4">Log Out</Button>
-		</table>
-
-		</div>
-		
-
-
-</body>
-
-<footer>
-
-         
-
-</footer>
-
-
-</html>
+<table class="layout-table">
+	<tr>
+		<td>
+			<form action="clocked_out.html" id="form1">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixClockOut.png">
+			</form>
+		</td>
+		<td>
+			<form action="employee_select_timeclock.html" id="form2">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixManCalender.png">
+			</form>
+		</td>
+		<td>
+			<form action="employee_display_timeoff.html" id="form3">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixCalendar.png">
+			</form>
+		</td>
+		<td>
+			<form action="perform_logout" id="form4">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixHomeIcon.png">
+			</form>
+		</td>
+	</tr>
+</table>

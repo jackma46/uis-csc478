@@ -1,34 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>View Time Clock Events</title>
-	<style>
-		.buttons { 
-  			width: 40%;
- 			table-layout: fixed;
- 			border-collapse: collapse;
-		}
-		.buttons button { 
-  			width: 100%;
-		}
-	</style>
-
-</head>
-
-<header>
-<h1 id="headline"><b>Team Grammers</b></h1>
-</header>
-
-<body>
-	<br>
-	<br>
-	<div>
-		<table border="1" cellpadding="5">
-   		<caption><b>List of Time Clock Events</b></caption>
+<!--This is the employee view time clock page, the user should be to view time clock events in a table. 
+	Requirement 2.2.2-->
+	
+<table border="1" cellpadding="5">
+   	<caption><b>List of Time Clock Events</b></caption>
     	<tr>
       		<th>Date</th>
       		<th>Time In</th>
@@ -43,21 +17,30 @@
          	<td>${tm.status}</td>
         </tr>
     	</c:forEach>
-		</table>
-	</div>
-	<br>
-	<br>
+</table>
 
-  	<div>
-  	<form action="employee_select_timeclock.html" id="form1"></form>
-	<form action="welcome.html" id="form2"></form>
-	<form action="perform_logout" id="form3"></form>
-	<table class=buttons>
+<br>
+<br>
+
+<table class="layout-table">
 	<tr>
-		<td><Button type="submit" form="form1">View Another Day</Button>
-		<td><Button type="submit" form="form2">Back To Home</Button>
-		<td><Button type="submit" form="form3">Log Out</Button>
-	</table>
-	</div>
-</body>
-</html>
+		<td>
+			<form action="employee_select_timeclock.html" id="form1">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixManCalender.png">
+			</form>
+		</td>
+		<td>
+			<form action="welcome.html" id="form2">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixBackArrow.png">
+			</form>
+		</td>
+		<td>
+			<form action="perform_logout" id="form3">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixHomeIcon.png">
+			</form>
+		</td>
+	</tr>
+</table>

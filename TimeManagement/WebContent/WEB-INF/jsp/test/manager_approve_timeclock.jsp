@@ -1,44 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-	<title>Approve Time Clock Events</title>
-	<style>
-		.buttons { 
-  			width: 30%;
- 			table-layout: fixed;
- 			border-collapse: collapse;
-		}
-		.buttons button { 
-  			width: 100%;
-		}
-	</style>
-<script>
-$('#allcb').change(function(){
-    if($(this).prop('checked')){
-        $('tbody tr td input[type="checkbox"]').each(function(){
-            $(this).prop('checked', true);
-        });
-    }else{
-        $('tbody tr td input[type="checkbox"]').each(function(){
-            $(this).prop('checked', false);
-        });
-    }
-});
-</script>
-</head>
-<header>
-	<h1 id="headline"><b>Team Grammers</b></h1>
-</header>
-<body>
-<br>
-<br>
-	<div>
-	  	<form action="manage/approve_timeclock.html" method="post" id="form1">
-		<table border="1" cellpadding="5">
+<!--This is the manager time clock approval page. The user should see all the submitted time clock events in a table with check boxes. 
+	Requirement 3.2.1 & 3.2.2-->
+	
+<form action="manage/approve_timeclock.html" method="post" id="form1">
+	<table border="1" cellpadding="5">
    		<caption><b>List of Time Clock Events</b></caption>
     	<tr>
     		<th><input type="checkbox" id="allcb" name="allcb"></th>
@@ -58,24 +22,35 @@ $('#allcb').change(function(){
          	<td>${tm.status}</td>
         </tr>
     	</c:forEach>
-		</table>
-		</form>
-	</div>
+	</table>
+</form>
 	<br>
 	<br>
 	<div>
-	<form action="manage/select_timeclock" method=get id="form2"></form>
-	<form action="welcome.html" id="form3"></form>
-	<form action="perform_logoff" id="form4"></form>	
-	<table class=buttons>
+<table class="layout-table">
 	<tr>
-		<td><Button type="submit" form="form1">Approve Events</Button>
-		<td><Button type="submit" form="form2">View Other Events</Button>
-		<td><Button type="submit" form="form3">Back To Home</Button>
-		<td><Button type="submit" form="form3">Log Off</Button>
-	</table>
-	</div>
-
-
-</body>
-</html>
+		<td>
+			<form action="" id="form1">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixCheck.png">
+			</form>
+		<td>
+			<form action="manage/select_timeclock.html" id="form3">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixManCalendar.png">
+			</form>
+		</td>
+		<td>
+			<form action="welcome.html" id="form3">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/MixBackArrow.png">
+			</form>
+		</td>
+		<td>
+			<form action="perform_logout" id="form4">
+				<input type="image"
+					src="${pageContext.request.contextPath}/img/HomeIcon.png">
+			</form>
+		</td>
+	</tr>
+</table>

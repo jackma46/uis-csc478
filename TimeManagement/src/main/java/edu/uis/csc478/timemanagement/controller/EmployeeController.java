@@ -58,7 +58,7 @@ public class EmployeeController {
 	}
 
 	@RequestMapping("/employee_select_timeclock")
-	public ModelAndView viewCalendar() {
+	public ModelAndView viewLog() {
 		
 		return TimeManagementUtil.buildModelAndView("test/employee_select_timeclock");
 	}
@@ -74,7 +74,7 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/employee_request_timeoff")
-	public ModelAndView showRequestTimeOff(){		
+	public ModelAndView showTimeOffRequests(){		
 		long id = TimeManagementUtil.getCurrentUserId();
 		Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
 		
@@ -82,7 +82,7 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/employee_timeoff_request")
-	public ModelAndView handleRequestTimeOff(
+	public ModelAndView handleIimeOffRequest(
 			@RequestParam(name="startDate") String startDate,
 			@RequestParam(name="endDate") String endDate,
 			@RequestParam(name="pto", defaultValue = "0") float PTO,
@@ -93,8 +93,8 @@ public class EmployeeController {
 			Date eDate = TimeManagementUtil.sqlDate(endDate);
 			Date today = TimeManagementUtil.getCurrentDate();
 			
-			if (sDate == null || eDate == null || sDate.compareTo(eDate) > 0 || sDate.compareTo(today) < 0) {
-				return showRequestTimeOff();
+			if (sDate == null || etimmamDate == null || sDate.compareTo(eDate) > 0 || sDate.compareTo(today) < 0) {
+				return showTimeOffRequests();
 			}
 						
 			LocalDate start = sDate.toLocalDate();
@@ -109,7 +109,7 @@ public class EmployeeController {
 			}
 			
 			if (days == 0 || days < (PTO + sick)) {
-				return showRequestTimeOff();
+				return showTimeOffRequests();
 			}
 			
 			long id = TimeManagementUtil.getCurrentUserId();
@@ -119,7 +119,7 @@ public class EmployeeController {
 			float availableSick = employeeInfo.getAvailableSick();
 			
 			if (availablePTO < PTO || availableSick < sick) {
-				return showRequestTimeOff();
+				return showTimeOffRequests();
 			}
 			
 			float unpaid = days * 8 - PTO - sick;
