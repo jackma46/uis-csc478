@@ -20,7 +20,7 @@
       from timeClock t 
      inner join employee e on e.id = t.id
      where e.managerId = #{managerId}
-    <if test="date != null">t.clockDate = #{date}</if>	
+    <if test="date != null"> and t.clockDate = #{date}</if>	
     <if test="id > 0"> and t.id = #{id}</if>
     <if test="status != null"> and t.status = #{status}</if>
   </select> 
