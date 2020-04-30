@@ -41,7 +41,7 @@ public class EmployeeController {
 		timeClock.setStatus(TimeClock.Status.UNFINISHED);
 		timeManagementRepository.insertTimeClockIn(timeClock);
 		
-		return TimeManagementUtil.buildModelAndView("test/clocked_in");
+		return TimeManagementUtil.buildModelAndView("clocked_in");
 	}
 	
 	@RequestMapping("/clocked_out")
