@@ -18,6 +18,7 @@ header {
 body {
 	background-image: url('../img/black-grey.png');
 	margin-left: auto;
+	min-width: 1000px;
 }
 
 footer {
@@ -91,6 +92,12 @@ input[type="image"] {
 
 #login-buttons {
 	padding-left: 550px;
+}
+
+.layout-table {
+	border: 0;
+	width: 80%;
+	float: right;
 }
 
 #showpassword {

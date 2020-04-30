@@ -62,18 +62,23 @@ public class TimeManagementUtil {
 	}
 	
 	public static ModelAndView buildModelAndView(String jsp, String modelName, Object model) {
+		if (jsp.contains(":")) {
+			return new ModelAndView(jsp);
+		}
+		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		TimeManagementContext context = new TimeManagementContext();
 		context.setCurrentDate(df.format(getCurrentDate()));
 		context.setCurrentTime(getCurrentTime().toString());
 		context.setEmployeeName(getCurrentUserName());
+		context.setContentJsp(jsp + ".jsp");
 		
 		Map<String, Object> data = new HashMap<>();
-		data.put("context", context);
+		data.put("tmContext", context);
 		if ((! isBlank(modelName)) && model != null) {
 			data.put(modelName, model);
 		}
-		return new ModelAndView(jsp, data);
+		return new ModelAndView("test/wrapper", data);
 	}
 	
 	public static Date sqlDate (String s) {

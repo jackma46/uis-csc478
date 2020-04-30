@@ -5,6 +5,7 @@ public class TimeManagementContext {
 	private String employeeName;
 	private String currentDate;
 	private String currentTime;
+	private String contentJsp;
 
 	public String getEmployeeName() {
 		return employeeName;
@@ -28,6 +29,14 @@ public class TimeManagementContext {
 
 	public void setCurrentTime(String currentTime) {
 		this.currentTime = currentTime;
+	}
+
+	public String getContentJsp() {
+		return contentJsp;
+	}
+
+	public void setContentJsp(String contentJsp) {
+		this.contentJsp = contentJsp;
 	}
 
 }
