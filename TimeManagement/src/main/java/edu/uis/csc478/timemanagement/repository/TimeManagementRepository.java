@@ -1,3 +1,10 @@
+/**
+ * @author Jack Ma, Team Grammers
+ * Part of UIS CSC 478 Group Project - Team Grammers
+ * Feb 2020 - May 2020
+ * 
+ */
+
 package edu.uis.csc478.timemanagement.repository;
 
 import java.sql.Date;
@@ -8,6 +15,11 @@ import org.apache.ibatis.annotations.Param;
 import edu.uis.csc478.timemanagement.model.Employee;
 import edu.uis.csc478.timemanagement.model.TimeClock;
 import edu.uis.csc478.timemanagement.model.TimeOff;
+
+/*
+ * This interface provides all the methods used by the controllers to access the SQL server database.
+ * This interface is mapped to TimeManagementRepository.xml, which, through MyBatis, converts java methods into SQL instructions.
+ */
 
 public interface TimeManagementRepository {
 	

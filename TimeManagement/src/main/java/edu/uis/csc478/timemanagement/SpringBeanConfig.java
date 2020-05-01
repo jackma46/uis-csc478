@@ -1,3 +1,10 @@
+/**
+ * @author Jack Ma, Team Grammers
+ * Part of UIS CSC 478 Group Project - Team Grammers
+ * Feb 2020 - May 2020
+ * 
+ */
+
 package edu.uis.csc478.timemanagement;
 
 import javax.sql.DataSource;
@@ -9,6 +16,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+
+/*
+ * The SpringBeanConfig file is used to established connection to the database. This is where the database information is stored.
+ */
 
 @Configuration
 @MapperScan("edu.uis.csc478.timemanagement.repository")

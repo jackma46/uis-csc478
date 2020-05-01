@@ -1,8 +1,20 @@
+/**
+ * @author Jack Ma, Team Grammers
+ * Part of UIS CSC 478 Group Project - Team Grammers
+ * Feb 2020 - May 2020
+ * 
+ */
+
 package edu.uis.csc478.timemanagement.model;
 
 import java.sql.Date;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
+
+/*
+ * This is a template class that lays out all the attributes of a a time clock event.
+ * The attributes in this template matches the table columns of the TimeClock table in the database.
+ */
 
 public class TimeClock {
 	

@@ -1,4 +1,16 @@
+/**
+ * @author Jack Ma, Team Grammers
+ * Part of UIS CSC 478 Group Project - Team Grammers
+ * Feb 2020 - May 2020
+ * 
+ */
+
 package edu.uis.csc478.timemanagement.controller;
+
+/*
+ * This template class help to pass some valuable information into the called JSP. 
+ * This way, the HTML returned to the user could dynamically display the user's name, current date, and current time.
+ */
 
 public class TimeManagementContext {
 

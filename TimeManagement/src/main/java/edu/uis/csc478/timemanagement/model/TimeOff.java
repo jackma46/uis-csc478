@@ -1,9 +1,21 @@
+/**
+ * @author Jack Ma, Team Grammers
+ * Part of UIS CSC 478 Group Project - Team Grammers
+ * Feb 2020 - May 2020
+ * 
+ */
+
 package edu.uis.csc478.timemanagement.model;
 
 import java.sql.Date;
 import java.time.LocalDate;
 
 import edu.uis.csc478.timemanagement.model.TimeClock.Status;
+
+/*
+ * This is a template class that lays out all the attributes of a time off request.
+ * This attributes in this template matches the table columns of the TimeOff table in the database.
+ */
 
 public class TimeOff {
 	
@@ -93,5 +105,4 @@ public class TimeOff {
 		
 		return null;
 	}
-
 }

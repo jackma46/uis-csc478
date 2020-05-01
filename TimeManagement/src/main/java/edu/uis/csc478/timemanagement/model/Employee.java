@@ -1,4 +1,16 @@
+/**
+ * @author Jack Ma, Team Grammers
+ * Part of UIS CSC 478 Group Project - Team Grammers
+ * Feb 2020 - May 2020
+ * 
+ */
+
 package edu.uis.csc478.timemanagement.model;
+
+/*
+ * This is a template class that lays out all the attributes of an employee.
+ * The attributes in this template matches the table columns of the Employee table in the database.
+ */
 
 public class Employee {
 
