@@ -11,13 +11,13 @@
 		<td>
 			<form action="employee_select_timeclock.html" id="form2">
 				<input type="image"
-					src="${pageContext.request.contextPath}/img/MixManCalender.png">
+					src="${pageContext.request.contextPath}/img/MixManCalendar.png">
 			</form>
 		</td>
 		<td>
 			<form action="employee_display_timeoff.html" id="form3">
 				<input type="image"
-					src="${pageContext.request.contextPath}/img/MixCalendar.png">
+					src="${pageContext.request.contextPath}/img/MixTimeOff.png">
 			</form>
 		</td>
 		<td>

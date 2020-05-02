@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,11 +24,7 @@
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   	<script>
   	$( function() {
-  		var rormat = "yy-mm-dd",
-	    $( "#datepicker" ).datepicker();
-	    $( "#format" ).on( "change", function() {
-	      $( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
-	    });
+  		$( "#datepicker" ).datepicker({dateFormat: "yy-mm-dd"});
 	} );
   	</script>
 	<script>
@@ -63,6 +59,14 @@
       	return date;
     	}
   	} );
+  </script>
+  <script type="text/javascript">
+  $( function() {
+	  $("#submit_form_info").submit(function() {
+		  $("#form1").submit();
+		  return false;
+	  });
+  });
   </script>
   	
 </head>

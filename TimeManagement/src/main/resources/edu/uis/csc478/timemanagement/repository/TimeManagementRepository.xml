@@ -1,11 +1,12 @@
-<!-- @author: Jack Ma	
-	 Part of UIS CSC 478 Group Project - Team Grammers
-	 Feb 2020 - May 2020 -->
-<!--This page contains all the SQL instructions used by the controllers through TimeManagementRepository.java-->
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @author: Jack Ma	
+	 Part of UIS CSC 478 Group Project - Team Grammers
+	 Feb 2020 - May 2020 -->
+<!--This page contains all the SQL instructions used by the controllers through TimeManagementRepository.java-->
+  
 <mapper namespace="edu.uis.csc478.timemanagement.repository.TimeManagementRepository">
   <select id="findEmployeeById" resultType="edu.uis.csc478.timemanagement.model.Employee">
     select * from employee where id = #{id}

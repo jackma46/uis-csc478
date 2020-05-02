@@ -68,7 +68,7 @@ public class EmployeeController {
 	@RequestMapping("/employee_select_timeclock")
 	public ModelAndView viewLog() {
 		
-		return TimeManagementUtil.buildModelAndView("test/employee_select_timeclock");
+		return TimeManagementUtil.buildModelAndView("employee_select_timeclock");
 	}
 	// Get the date from employee_select_timeclock page. Then find all time clock events for that date with the user's id. 
 	// Pass the list of TimeClock to employee_display_timeclocks to show in a table.
@@ -81,7 +81,7 @@ public class EmployeeController {
 		long managerId = TimeManagementUtil.getCurrentManagerId();
 		List<TimeClock> timeClocks = timeManagementRepository.findTimeClockEntries(id, date, managerId, null);		
 		
-		return TimeManagementUtil.buildModelAndView("test/employee_display_timeclock", "timeClocks", timeClocks);
+		return TimeManagementUtil.buildModelAndView("employee_display_timeclock", "timeClocks", timeClocks);
 	}	
 	// When employee_display_timeoff is called, pass in all the time off requests with the user's id this year. 
 	// Requirement 2.3.1
@@ -91,7 +91,7 @@ public class EmployeeController {
 		long managerId = TimeManagementUtil.getCurrentManagerId();
 		List<TimeOff> timeOffRequests = timeManagementRepository.findTimeOffEntries(id, managerId, null);
 		
-		return TimeManagementUtil.buildModelAndView("test/employee_display_timeoff", "timeOffRequests", timeOffRequests);		
+		return TimeManagementUtil.buildModelAndView("employee_display_timeoff", "timeOffRequests", timeOffRequests);		
 	}
 	// When employee_request_timeoff is called, pass in the user's information as an Employee object. 
 	// This way, the user's time off hours can be used in a table
@@ -101,7 +101,7 @@ public class EmployeeController {
 		long id = TimeManagementUtil.getCurrentUserId();
 		Employee employeeInfo = timeManagementRepository.findEmployeeById(id);	
 		
-		return TimeManagementUtil.buildModelAndView("test/employee_request_timeoff", "employeeInfo", employeeInfo);
+		return TimeManagementUtil.buildModelAndView("employee_request_timeoff", "employeeInfo", employeeInfo);
 	}
 	// When the user submits a new time off requests, enter the request in the TimeOff table.
 	// Also calculate all the hours used, deduct from user's Employee table entry.
