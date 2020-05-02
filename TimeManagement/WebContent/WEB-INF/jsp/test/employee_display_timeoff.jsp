@@ -1,6 +1,6 @@
 <!--This is the employee view time off request page, the user should be able to view time off requests in a table.
 	Requirement 2.3.1 & 2.3.5-->
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <table border="1" cellpadding="5">
    	<caption><b>List of Time Off Requests</b></caption>
     	<tr>
@@ -12,11 +12,11 @@
       		<th>Unpaid Requested</th>
       		<th>Status</th>
     		</tr>
-    <c:forEach var="tm" items="${timeOffs}">
+    <c:forEach var="tm" items="${timeOffRequests}">
        	<tr>
          	<td>${tm.startDate}</td>
          	<td>${tm.endDate}</td>
-         	<td>${tm.PTORequested}</td>
+         	<td>${tm.ptoRequested}</td>
          	<td>${tm.sickRequested}</td>
          	<td>${tm.floaterRequested}</td>
          	<td>${tm.unpaidRequested}</td>
@@ -31,7 +31,7 @@
 <table class="layout-table">
 	<tr>
 		<td>
-			<form action="employee_select_timeoff.html" id="form1">
+			<form action="employee_request_timeoff.html" id="form1">
 				<input type="image"
 					src="${pageContext.request.contextPath}/img/MixCalender.png">
 			</form>

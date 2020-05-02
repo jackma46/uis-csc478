@@ -1,6 +1,6 @@
 <!--This is the employee view time off request page. The user should see their available and used hours in a table and enter the dates and hours for their new request.
 	Requirement 2.3.2 & 2.3.3-->
-	
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <table border="1" cellpadding="5">
    	<caption><b>Your available and used hours:</b></caption>
     	<tr>
@@ -24,26 +24,43 @@
         </tr>
 	</c>
 </table>
-<br>
-<br>
-<form action="employee_request_timeoff" method="post" id=form1>
-	<label for="from">Start Date</label>
-	<input type="text" id="from" name="startDate">
-	<label for="to">End Date</label>
-	<input type="text" id="to" name="endDate"><br>
-	<label for="pto">PTO Hours:</label>
-	<input type="number" id="pto" name="pto"><br>
-	<label for="sick">Sick Hours:</label>
-	<input type="number" id="pto" name="pto"><br>
-	<label for="floater">Floater Hours:</label>
-	<input type="number" id="pto" name="pto"><br>		
+
+<form action="employee_request_timeoff.html" method="post" id=form1>
+	<table class="layout-table">
+		<tr>
+			<td><label for="from">Start Date:</label></td>
+			<td><input type="text" id="from" name="startDate"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><label for="to">End Date:</label></td>
+			<td><input type="text" id="to" name="endDate"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><label for="pto">PTO Hours:</label></td>
+			<td><input type="number" id="pto" name="pto"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><label for="sick">Sick Hours:</label></td>
+			<td><input type="number" id="sick" name="sick"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><label for="floater">Floater Hours:</label></td>
+			<td><input type="number" id="floater" name="floater"></td>
+			<td></td>
+		</tr>
+	</table>		
 </form>
+
 <br>
 <br>
 <table class="layout-table">
 	<tr>
 		<td>
-			<form action="employee_display_timeoff.html" id="form1">
+			<form id="submit_form_info">
 				<input type="image"
 					src="${pageContext.request.contextPath}/img/MixCheck.png">
 			</form>

@@ -35,7 +35,7 @@
   </select> 
   <update id="updateEmployeeTimeOff" parameterType="map">
 	update Employee 
-	set availablePTO = availablePTO - #{PTO},
+	set accruedPTO = accruedPTO - #{PTO},
 		usedPTO = usedPTO + #{PTO},
 		availableSick = availableSick - #{sick},
 		usedSick = usedSick + #{sick},
@@ -75,12 +75,13 @@
   </select> 
   <update id="refundTimeOff" parameterType="edu.uis.csc478.timemanagement.model.TimeOff">
     update Employee
-    set availablePTO = availablePTO + #{PTORequested}
-    	usedPTO = usedPTO - #{PTORequested}
+    set accruedPTO = accruedPTO + #{ptoRequested},
+    	usedPTO = usedPTO - #{ptoRequested},
     	availableSick = availableSick + #{sickRequested},
 		usedSick = usedSick - #{sickRequested},
 		availableFloater = availableFloater + #{floaterRequested},
-		usedFloater = usedFloater - #{floaterRequested}
+		usedFloater = usedFloater - #{floaterRequested},
+		usedUnpaid = usedUnpaid - #{unpaidRequested}
     where id = #{id}
   </update> 
 </mapper>

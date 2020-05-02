@@ -3,7 +3,7 @@ header {
 	align-items: stretch;
 	text-align: center;
 	flex-direction: column;
-	margin-top: 100px;
+	margin-top: 60px;
 	color: white;
 }
 
@@ -19,6 +19,7 @@ body {
 	background-image: url('../img/black-grey.png');
 	margin-left: auto;
 	min-width: 1000px;
+	color: white;
 }
 
 footer {
@@ -33,9 +34,9 @@ body input:hover {
 
 label {
 	padding-right: 50px;
-	font-size: 450%;
+	font-size: 200%;
 	display: inline-block;
-	width: 500px;
+	width: 300px;
 	text-align: right;
 }
 
@@ -50,7 +51,7 @@ h2 {
 
 h3 {
 	text-align: center;
-	margin-right: 250px;
+	margin-left: 150px;
 	font-family: "Gill Sans Bold", serif;
 	color: white;
 }
@@ -63,7 +64,7 @@ h4 {
 }
 
 #employeeid_textbox {
-	height: 80px;
+	height: 40px;
 	width: 400px;
 	font-size: 36pt;
 	border-style: solid;
@@ -74,7 +75,7 @@ h4 {
 }
 
 #password_textbox {
-	height: 80px;
+	height: 40px;
 	width: 400px;
 	font-size: 36pt;
 	border-style: solid;
@@ -85,9 +86,10 @@ h4 {
 }
 
 input[type="image"] {
-	height: 170px;
-	width: 170px;
-	margin-right: 60px;
+	height: 120px;
+	width: 120px;
+	margin-left: 40px;
+	margin-right: 40px;
 }
 
 #login-buttons {
@@ -97,7 +99,6 @@ input[type="image"] {
 .layout-table {
 	border: 0;
 	width: 80%;
-	float: right;
 }
 
 #showpassword {

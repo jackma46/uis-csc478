@@ -4,13 +4,13 @@
 <table class="layout-table">
 	<tr>
 		<td>
-			<form action="manager_approve_timeclock.html" id="form1">
+			<form action="manager_approve_timeclock.html" method="get" id="form1">
 				<input type="image"
-					src="${pageContext.request.contextPath}/img/MixManCalender.png">
+					src="${pageContext.request.contextPath}/img/MixManCalendar.png">
 			</form>
 		</td>
 		<td>
-			<form action="manager_approve_timeoff.html" id="form2">
+			<form action="manager_approve_timeoff.html" method="get" id="form2">
 				<input type="image"
 					src="${pageContext.request.contextPath}/img/MixCalendar.png">
 			</form>

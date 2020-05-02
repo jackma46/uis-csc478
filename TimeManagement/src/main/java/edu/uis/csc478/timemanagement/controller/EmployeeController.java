@@ -14,6 +14,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -106,7 +107,8 @@ public class EmployeeController {
 	// When the user submits a new time off requests, enter the request in the TimeOff table.
 	// Also calculate all the hours used, deduct from user's Employee table entry.
 	// Requirement 2.3.4 & 2.3.5
-	@PostMapping("/employee_timeoff_request")
+	@PostMapping("/employee_request_timeoff")
+	@Transactional 
 	public ModelAndView handleIimeOffRequest(
 			@RequestParam(name="startDate") String startDateInString,
 			@RequestParam(name="endDate") String endDateInString,
@@ -131,7 +133,7 @@ public class EmployeeController {
 				if (!(start.getDayOfWeek() == DayOfWeek.SATURDAY || start.getDayOfWeek() == DayOfWeek.SUNDAY)) {
 					days++;
 				}
-				start.plusDays(1);
+				start = start.plusDays(1);
 			}
 			// If the requested hours is zero or the requested hours is less than the entered hours of time off type, refresh the page and do nothing.
 			if (days == 0 || (days * 8) < (PTO + sick + floater)) {

@@ -10,14 +10,6 @@
 	<meta charset="ISO-8859-1">
 	<title>Time Management System</title>
 	<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/style2.css">
-	
-	<script type="text/javascript">
-	function clearLoginForm() {
-		document.getElementById('employeeid_textbox').value = ''
-		document.getElementById('password_textbox').value = ''
-	}
-	</script>
-	
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   	<link rel="stylesheet" href="/resources/demos/style.css">
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -34,7 +26,8 @@
         	.datepicker({
           	defaultDate: "+1w",
           	changeMonth: true,
-          	numberOfMonths: 3
+          	dateFormat: "yy-mm-dd",
+          	numberOfMonths: 2
         	})
         	.on( "change", function() {
           	to.datepicker( "option", "minDate", getDate( this ) );
@@ -42,7 +35,8 @@
       	to = $( "#to" ).datepicker({
         	defaultDate: "+1w",
         	changeMonth: true,
-        	numberOfMonths: 3
+        	dateFormat: "yy-mm-dd",
+        	numberOfMonths: 2
       	})
       	.on( "change", function() {
         	from.datepicker( "option", "maxDate", getDate( this ) );
@@ -68,22 +62,37 @@
 	  });
   });
   </script>
+    <script type="text/javascript">
+  $( function() {
+	  $("#submit_form_info2").submit(function() {
+		  $("#status").val("REJECTED")
+		  $("#form1").submit();
+		  return false;
+	  });
+  });
+  </script>
   	
 </head>
 
 <body>
+	<table class="layout-table">
+	<tr><td align="center">
 	<article>
 		<header>
 			<div id="headline">Team Grammers</div>
 			
-			<h1>${tmContext.employeeName}</h1>
+			<h1>Welcome ${tmContext.employeeName}</h1>
 		</header>
 	</article>
+	</td></tr>
+	
+	<tr height="60px"><td>&nbsp;</td></tr>
 
-	<br>
-	<br>
-
+	
+	<tr><td align="center">
 	<jsp:include page="${tmContext.contentJsp}" />
+	</td></tr>
+	</table>
 
 </body>
 <footer> </footer>

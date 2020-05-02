@@ -27,22 +27,28 @@
 	<br>
 
 
-	<form action="perform_login" method="post">
 
+  <form action="perform_login" method="post">
 		<div class="zoomed">
-   		
-   			<label for="textbox">Employee ID</label>
-   			<input type="text" placeholder="Enter ID" id="employeeid_textbox" name="username"/>
-   			<br><br>
-   			<label for="textbox">Password</label>
-   			<input type="password" placeholder="Enter Password" id="password_textbox" name="password"/>
-   			<br><br>
-   			<div id="login-buttons">
-     		<input type="image" name="submit" src="${pageContext.request.contextPath}/img/MixCheck.png"/>
-     		<input type="image" name="clear" src="${pageContext.request.contextPath}/img/MixX.png" onclick="clearLoginForm()">
-		    </div>
+   			<table>
+ 
+   			<tr>
+   				<td><label for="textbox">Employee ID</label></td>
+   				<td><input type="text" placeholder="Enter ID" id="employeeid_textbox" name="username"/></td>
+			</tr>
+			<tr>
+   				<td><label for="textbox">Password</label></td>
+   				<td><input type="password" placeholder="Enter Password" id="password_textbox" name="password"/></td>
+   			</tr>
+			<tr>
+     			<td></td>
+     			<td><input type="image" name="submit" src="${pageContext.request.contextPath}/img/MixCheck.png"/>
+     			<input type="image" name="clear" src="${pageContext.request.contextPath}/img/MixX.png" onclick="clearLoginForm()"></td>
+			</tr>
+
+		    </table>
 		</div>
-	</form>
+				</form>
 
 
 </body>

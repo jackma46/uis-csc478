@@ -2,7 +2,10 @@
 	Requirement 2.2.2-->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<table border="1" cellpadding="5">
+
+<table class="layout-table">
+	<tr><td colspan="3" align="center">
+	<table border="1" cellpadding="5">
    	<caption><b>List of Time Clock Events</b></caption>
     	<tr>
       		<th>Date</th>
@@ -18,17 +21,16 @@
          	<td>${tm.status}</td>
         </tr>
     	</c:forEach>
-</table>
-
-<br>
-<br>
-
-<table class="layout-table">
+	</table>
+	
+	</td></tr>
+	<tr></tr>
+	<tr></tr>
 	<tr>
 		<td>
 			<form action="employee_select_timeclock.html" id="form1">
 				<input type="image"
-					src="${pageContext.request.contextPath}/img/MixManCalender.png">
+					src="${pageContext.request.contextPath}/img/MixManCalendar.png">
 			</form>
 		</td>
 		<td>

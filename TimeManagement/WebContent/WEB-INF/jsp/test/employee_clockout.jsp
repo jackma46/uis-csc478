@@ -12,7 +12,7 @@
 		<td>
 			<form action="employee_select_timeclock.html" id="form2">
 				<input type="image"
-					src="${pageContext.request.contextPath}/img/MixManCalender.png">
+					src="${pageContext.request.contextPath}/img/MixManCalendar.png">
 			</form>
 		</td>
 		<td>

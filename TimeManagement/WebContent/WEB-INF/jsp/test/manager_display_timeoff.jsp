@@ -1,6 +1,6 @@
 <!--This is the manager display time off page. The user should see all the selected time off requests in a table. 
 	Requirement 3.2.5-->
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <table border="1" cellpadding="5">
    	<caption><b>List of Time Off Requests</b></caption>
     	<tr>
@@ -31,7 +31,7 @@
 <table class="layout-table">
 	<tr>
 		<td>
-			<form action="manager/select_timeoff.html" id="form1">
+			<form action="manager_select_timeoff.html" id="form1">
 				<input type="image"
 					src="${pageContext.request.contextPath}/img/MixCalendar.png">
 			</form>
@@ -44,7 +44,7 @@
 		<td>
 			<form action="perform_logout" id="form3">
 				<input type="image"
-					src="${pageContext.request.contextPath}/img/HomeIcon.png">
+					src="${pageContext.request.contextPath}/img/MixHomeIcon.png">
 			</form>
 		</td>
 	</tr>

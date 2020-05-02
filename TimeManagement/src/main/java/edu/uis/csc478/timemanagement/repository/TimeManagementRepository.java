@@ -48,7 +48,7 @@ public interface TimeManagementRepository {
 	
 	TimeOff findTimeOffEntry(@Param("toId") long toId);
 	
-	int refundTimeOff(@Param("to") TimeOff to);
+	int refundTimeOff(TimeOff to);
 
 }
  
