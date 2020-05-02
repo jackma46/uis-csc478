@@ -130,8 +130,8 @@ h5 {
 }
 
 #calendar_opt_buttons  {
-  padding-top: 600px;
-  word-spacing: 300px;
+  padding-top: 500px;
+  word-spacing: 180px;
 }
 
 body img:hover {
@@ -180,6 +180,50 @@ div.resize {
 	border-width: 4px;	
 }
 	 
+	 
+#fromDate 
+{
+    height:55px;
+	width: 28%;
+    font-size:36pt;
+	border-style: solid;
+	border-color: dodgerblue;
+	border-radius: 10px;
+	border-width: 4px;	
+	margin-left: 105px;
+}
+
+#employees
+{
+    height:65px;
+	width: 28%;
+    font-size:36pt;
+	border-style: solid;
+	border-color: dodgerblue;
+	border-radius: 10px;
+	border-width: 4px;	
+}
+
+#status
+{
+    height:65px;
+	width: 28%;
+    font-size:36pt;
+	border-style: solid;
+	border-color: dodgerblue;
+	border-radius: 10px;
+	border-width: 4px;	
+	margin-left: 76px;
+}
+
+label
+{
+  font-size:36pt;
+  text-align: right;
+  font-family: "Gill Sans Bold", serif;
+  color: white;
+  margin-left: 300px;
+}
 
 
 </html>
