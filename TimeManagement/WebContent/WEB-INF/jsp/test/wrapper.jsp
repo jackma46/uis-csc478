@@ -81,7 +81,7 @@
 		<header>
 			<div id="headline">Team Grammers</div>
 			
-			<h1>Welcome ${tmContext.employeeName}</h1>
+			<h1>Hello ${tmContext.employeeName}</h1>
 		</header>
 	</article>
 	</td></tr>
