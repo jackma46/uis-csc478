@@ -109,7 +109,7 @@ h5 {
 
 
 #employee_opt_buttons  {
-  padding-top: 250px;
+  padding-top: 200px;
   word-spacing: 180px;
   text-align: center;
 }
@@ -192,6 +192,30 @@ div.resize {
 }
 
 #pto
+{
+    height:55px;
+	width: 40%;
+    font-size:36pt;
+	border-style: solid;
+	border-color: dodgerblue;
+	border-radius: 10px;
+	border-width: 4px;	
+	margin-left: 105px;
+}
+
+#sick
+{
+    height:55px;
+	width: 40%;
+    font-size:36pt;
+	border-style: solid;
+	border-color: dodgerblue;
+	border-radius: 10px;
+	border-width: 4px;	
+	margin-left: 105px;
+}
+
+#floater
 {
     height:55px;
 	width: 40%;
@@ -290,6 +314,10 @@ tr:nth-child(even)
 	background-color: #f2f2f2
    }
 
+   tr:nth-child(odd) 
+{
+	background-color: #a5a2a2
+   }
 
 form  
     { 
