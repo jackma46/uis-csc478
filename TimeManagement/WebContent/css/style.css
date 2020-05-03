@@ -1,14 +1,5 @@
-<html>
 
-header {
-	 display: flex;
-	 align-items: stretch;
-     text-align: center;
-	 flex-direction: column;
-	 margin-top: 400px;
-	 color: white;
-	 
-}
+
 
 #headline {
     text-align: center;
@@ -19,10 +10,10 @@ header {
 }
 
      body {
-      background-image: url('black-grey.png');
-      margin-left: auto;
-	  
-	 }
+            background-image: url('../black-grey.png');
+			background-repeat: no-repeat;
+			background-size: 100%;		
+	        }
 	 
 	 footer {
 	
@@ -36,12 +27,6 @@ header {
      filter: alpha(opacity=50)
 	 }
 	 
-	 label {
-       padding-right: 50px;
-	   font-size: 450%;
-	   text-align: center;
-	   
-}
 
       h2 {
 	 
@@ -77,27 +62,26 @@ h5 {
 
 {
     height:80px;
-	width: 28%;
+	width: auto;
     font-size:36pt;
 	border-style: solid;
 	border-color: dodgerblue;
 	border-radius: 10px;
 	border-width: 4px;
-	
+	margin-left: 80px;
 }
 
 #password_textbox
 
 {
     height:80px;
-	width: 28%;
+	width: auto;
     font-size:36pt;
 	border-style: solid;
 	border-color: dodgerblue;
 	border-radius: 10px;
 	border-width: 4px;
-	margin-left: 123px;
-	
+	margin-left: 80px;
 }
 
 #showpassword {
@@ -127,11 +111,13 @@ h5 {
 #employee_opt_buttons  {
   padding-top: 250px;
   word-spacing: 180px;
+  text-align: center;
 }
 
 #calendar_opt_buttons  {
   padding-top: 500px;
   word-spacing: 180px;
+  text-align: center;
 }
 
 body img:hover {
@@ -184,7 +170,31 @@ div.resize {
 #fromDate 
 {
     height:55px;
-	width: 28%;
+	width: 40%;
+    font-size:30pt;
+	border-style: solid;
+	border-color: dodgerblue;
+	border-radius: 10px;
+	border-width: 4px;	
+	margin-left: 105px;
+}
+
+#toDate 
+{
+    height:55px;
+	width: 40%;
+    font-size:30pt;
+	border-style: solid;
+	border-color: dodgerblue;
+	border-radius: 10px;
+	border-width: 4px;	
+	margin-left: 105px;
+}
+
+#pto
+{
+    height:55px;
+	width: 40%;
     font-size:36pt;
 	border-style: solid;
 	border-color: dodgerblue;
@@ -196,7 +206,7 @@ div.resize {
 #employees
 {
     height:65px;
-	width: 28%;
+	width: 60%;
     font-size:36pt;
 	border-style: solid;
 	border-color: dodgerblue;
@@ -206,15 +216,16 @@ div.resize {
 
 #status
 {
-    height:65px;
-	width: 28%;
+    height: 65px;
+	width: 60%;
     font-size:36pt;
 	border-style: solid;
 	border-color: dodgerblue;
 	border-radius: 10px;
-	border-width: 4px;	
-	margin-left: 76px;
+	border-width: 4px;
+	
 }
+
 
 label
 {
@@ -223,7 +234,71 @@ label
   font-family: "Gill Sans Bold", serif;
   color: white;
   margin-left: 300px;
+  display: table-cell; 
 }
 
+.wrap {
+	table-layout: fixed;
+    width: 100%;
+}
 
-</html>
+.wrap table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+table tr td {
+    padding: 5px;
+    border: 1px solid #eee;
+    width: 100px;
+    word-wrap: break-word;
+}
+
+table.head tr td {
+    background: #eee;
+}
+
+.inner_table {
+    height: 200px;
+    overflow-y: auto;
+}
+
+table 
+{
+         border-collapse: collapse;
+         width: 50%;
+         color: #000000;
+         font-family: monospace;
+         font-size: 20px;
+         }
+
+caption 
+{
+         font-family: monospace;
+         font-size: 20px;
+         color: white;
+         }
+         
+th 
+{
+         background-color: #000000;
+         color: white;
+         }
+         
+tr:nth-child(even) 
+{
+	background-color: #f2f2f2
+   }
+
+
+form  
+    { 
+    display: table;      
+    }
+
+p     
+    { 
+    display: table-row;  
+    }
+
+
