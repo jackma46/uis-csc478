@@ -34,7 +34,7 @@
   document.write(formatAMPM(date) + "<br>");
   
   setTimeout(function(){
-            window.location.href = 'index.jsp';
+            window.location.href = 'login.html';
          }, 3000);
  
   </script>
