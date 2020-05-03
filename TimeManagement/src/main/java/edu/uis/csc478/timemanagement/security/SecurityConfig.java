@@ -54,17 +54,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
           // Redirect users who have successfully authenticated to the welcome screen, controlled by the HomeController.
           // Requirement 1.1.0
 	          .formLogin()
-	          .loginPage("/login2.jsp")
+	          .loginPage("/login.jsp")
 	          .loginProcessingUrl("/perform_login")
 	          .defaultSuccessUrl("/welcome.html", true)
-	          .failureUrl("/login2.jsp?error=true")
+	          .failureUrl("/login.jsp?error=true")
           .and()
           // When the user logs out, delete the session cookie and end the session. Then redirect user to the log in page.
           // Requirement 2.4.1 & 3.31
 	          .logout()
 	          .logoutUrl("/perform_logout")
 	          .deleteCookies("JSESSIONID")
-	          .logoutSuccessUrl("/login2.jsp");
+	          .logoutSuccessUrl("/login.jsp");
     }
     
     @Bean

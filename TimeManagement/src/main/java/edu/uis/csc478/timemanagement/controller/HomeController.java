@@ -53,10 +53,10 @@ public class HomeController {
 		List<TimeClock> entries = timeManagementRepository.findTimeClockEntries(id, today, managerID, TimeClock.Status.UNFINISHED);
 		// If the user does have an unfinished TimeClock entry, direct the user to the employee_clockout page.
 		if (!entries.isEmpty()) {
-				return TimeManagementUtil.buildModelAndView("employee_clockout");
+				return TimeManagementUtil.buildModelAndView("employee_clockout_screen");
 		}		
 		// Otherwise, direct the user to the employee_clockin page
-		return TimeManagementUtil.buildModelAndView("employee_clockin");
+		return TimeManagementUtil.buildModelAndView("employee_clockin_screen");
 	}
 	
 }

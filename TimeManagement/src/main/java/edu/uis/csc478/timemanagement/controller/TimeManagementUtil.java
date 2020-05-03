@@ -85,7 +85,7 @@ public class TimeManagementUtil {
 		if ((! isBlank(modelName)) && model != null) {
 			data.put(modelName, model);
 		}
-		return new ModelAndView("test/wrapper", data);
+		return new ModelAndView(jsp, data);
 	}
 	
 	public static Date sqlDate (String s) {
