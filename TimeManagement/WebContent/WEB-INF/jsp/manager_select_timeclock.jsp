@@ -19,7 +19,7 @@
             document.write(formatAMPM(date) + "<br>");
             
              $( function() {
-            var from = $( "#fromDate" )
+            var from = $( "#selectDate" )
               .datepicker({
                 dateFormat: "yy-mm-dd",
                 changeMonth: true
@@ -52,7 +52,12 @@
       </h2>
       <center>
       <form action="manage/display_timeclock.html" method=post id="form1" autocomplete="off">
-         <p><label for="fromDate">Please Select A Date:  <input type="text" id="fromDate" name="date"></label></p>
+       <p>
+       <div class="padding_right">
+         <label for="fromDate">Please Select A Date:  <input type="text" id="selectDate" name="date"></label><br>
+        </div>
+         </p>
+       
          <p>
             <label for="employees">Please Select Employee:</label>
             <select id="employees" name="employeeId">

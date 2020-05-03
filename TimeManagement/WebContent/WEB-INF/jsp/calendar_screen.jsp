@@ -11,11 +11,11 @@
       <div class="zoomed2">
          <img src="img\TeamGrammers.png" alt="Italian Trulli">
       </div>
-      <div class="zoomed">
-         <h1 id="headline">${context.employeeName}</h1>
-      </div>
    </header>
    <body>
+   <div class="zoomed">
+         <h1 id="headline">${tmContext.employeeName}</h1>
+  
       <h2>
          <script type="text/javascript">// set default dates
             var date = new Date();
@@ -53,8 +53,9 @@
             
          </script>
       </h2>
+      </div>
      <center>
-      <form action="employee_display_timeclock.html" method=post id="form1" autocomplete="off">
+      <form action="employee_hours_log_view.html" method=post id="form1" autocomplete="off">
          <label for="fromDate">Please Select A Date: <input type="text" id="fromDate" name="date"></label>
       </form>
      </center>

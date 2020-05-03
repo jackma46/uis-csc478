@@ -4,7 +4,7 @@
    <header>
       <meta charset="utf-8" />
       <title>Manager Welcome</title>
-      <link rel="stylesheet" href="css\style.css" />
+      <link rel="stylesheet" href="..\css\style.css" />
       <script language="javascript" src="scripts\currenttime.js"></script>
       <style>
          body {

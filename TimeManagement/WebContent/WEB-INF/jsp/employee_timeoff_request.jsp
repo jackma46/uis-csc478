@@ -7,13 +7,15 @@
       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+      
       <div class="zoomed2">
          <img src="img\TeamGrammers.png" alt="Italian Trulli">
       </div>
    </header>
    <body>
       <div class="zoomed">
-         <h1 id="headline">${context.employeeName}</h1>
+         <h1 id="headline">${tmContext.employeeName}</h1>
       </div>
         
             <table border="1" cellpadding="5" align="right">
@@ -71,19 +73,19 @@
          	});
       </script>        
          
-      <form action="employee_request_timeoff" method="post" id="form1" autocomplete="off">
+      <form action="employee_timeoff_request.html" method="post" id="form1" autocomplete="off">
        <div class="align">
         <p> <label for="fromDate">Start Date: </label><input type="text" id="fromDate" name="startDate"><br><br></p>
          <p> <label for="toDate">End Date: </label><input type="text" id="toDate" name="endDate"><br><br></p>
          <p> <label for="get_pto">PTO Hours:</label><input type="number" id="pto" name="pto"><br><br></p>
-	    <p>  <label for="sick">Sick Hours:</label><input type="number" id="pto" name="pto"><br><br></p>
-	    <p>  <label for="floater">Floater Hours:</label><input type="number" id="pto" name="pto"></p>
+	    <p>  <label for="sick">Sick Hours:</label><input type="number" id="sick" name="sick"><br><br></p>
+	    <p>  <label for="floater">Floater Hours:</label><input type="number" id="floater" name="floater"></p>
 	    </div>
       </form>
     
       <form action="employee_timeoff_result.html" id="form2"></form>
       <form action="welcome.html" id="form3"></form>
-      <form action="perform_logout" id="form3"></form>
+      <form action="perform_logout" id="form4"></form>
       <div id="employee_opt_buttons">
          <div class="zoomed">        
                <input type="image" form="form1" src="img\MixCheck.png">

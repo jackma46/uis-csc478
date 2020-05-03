@@ -11,17 +11,18 @@
       </div>
    </header>
    <body>
-      <h1 id="headline">Company Name</h1>
+      <h1 id="headline">Team Grammers</h1>
       <h2>
          <script language="javascript">
             setTimeout(function(){
-                      window.location.href = 'employee_login_screen_clockedout.html';
+                      window.location.href = 'perform_logout';
                    }, 5000);
             
          </script>
-         <p>Clockin successful! Have a great day!</p>
+         <center>
+         <p>Clockin successful! Have a great day ${tmContext.employeeName}!</p>
+         </center>
       </h2>
-      <h5 id="headline">${context.employeeName}</h5>
    </body>
    </article>
 </html>

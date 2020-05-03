@@ -11,20 +11,21 @@
       </div>
    </header>
    <body>
-      <h1 id="headline">Company Name</h1>
+      <h1 id="headline">Team Grammers</h1>
       <h2>
          <script language="javascript">
             var date = new Date();
             document.write(formatAMPM(date) + "<br>");
             
             setTimeout(function(){
-                      window.location.href = 'employee_login_screen_clockedin.html';
+                      window.location.href = 'perform_logout';
                    }, 5000);
             
          </script>
-         <p>Clockout successful! Have a great day!</p>
+         <center>
+         <p>Clockout successful! Have a great day ${tmContext.employeeName}!</p>
+         </center>
       </h2>
-      <h5 id="headline">${context.employeeName}</h5>
    </body>
    </article>
 </html>

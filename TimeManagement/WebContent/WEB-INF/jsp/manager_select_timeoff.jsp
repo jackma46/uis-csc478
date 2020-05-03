@@ -78,7 +78,7 @@
       <form action="perform_logout" id="form3"></form>
       <div id="calendar_opt_buttons">
          <div class="zoomed"> 
-            <input type="image" form="form1" src="img\MixCheck.png">
+            <input type="image" form="form1" src="img\MixManCalendar.png">
             <input type="image" form="form2" src="img\MixBackArrow.png">
             <input type="image" form="form3" src="img\MixHomeIcon.png">
          </div>
