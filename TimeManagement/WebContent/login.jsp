@@ -7,9 +7,12 @@
       <script language="javascript" src="scripts\currenttime.js"></script>
       <script language="javascript" src="scripts\hidePassword.js"></script>
    </header>
+       <div class="zoomed2">
+         <img src="img\TeamGrammers.png" alt="Italian Trulli">
+      </div>
    <body>
       <div class="zoomed">
-         <h1 id="headline">Company Name</h1>
+         <h1 id="headline">Team Grammers</h1>
       </div>
       <h2>
          <div class="zoomed">
