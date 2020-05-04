@@ -10,7 +10,7 @@
 }
 
      body {
-            background-image: url('../black-grey.png');
+            background-image: url(../img/black-grey.png);
 			background-repeat: no-repeat;
 			background-size: 100%;		
 	        }
