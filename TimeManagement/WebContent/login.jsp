@@ -27,6 +27,7 @@
                
             </script>
          </div>
+         <br>
       </h2>
       <center>
          <div class="zoomed">
@@ -40,7 +41,7 @@
          </div>
       </center>
       <div id="employee_opt_buttons">
-         <div class="zoomed">   
+         <div class="zoomed2">   
             <input type="image" form="form1" src="img\MixCheck.png">
             <input type="image" id="clear" name="clear" src="img\MixX.png" onclick="clearLoginForm()">
          </div>
