@@ -4,7 +4,7 @@
    <header>
       <meta charset="utf-8" />
       <title>Employee Login Screen/Clockin</title>
-      <link rel="stylesheet" href="\css\style.css" />
+      <link rel="stylesheet" href="css\style.css" />
       <script language="javascript" src="scripts\currenttime.js"></script>
       <div class="zoomed2">
          <img src="img\TeamGrammers.png" alt="Italian Trulli">

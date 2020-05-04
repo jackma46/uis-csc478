@@ -3,18 +3,21 @@
    <header lang="en">
       <meta charset="utf-8" />
       <title>Manager Display Timeclock</title>
-      <link href="css\style.css" rel="stylesheet">
+      <link href="..\css\style.css" rel="stylesheet">
       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script language="javascript" src="scripts\currenttime.js"></script>
+      <script language="javascript" src="..\scripts\currenttime.js"></script>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
       </style>
       <div class="zoomed2">
-         <img src="img\TeamGrammers.png" alt="Italian Trulli">
+         <img src="..\img\TeamGrammers.png" alt="Italian Trulli">
       </div>
    </header>
    <body>
+    <div class="zoomed">
+         <h1 id="headline">Team Grammers</h1>
+      </div>
       <h2>
          <div class="zoomed">
             <script language="javascript">
@@ -23,6 +26,10 @@
             </script>
          </div>
       </h2>
+      <div class="zoomed">
+         <h1 id="headline">${tmContext.employeeName}</h1>
+      </div>
+      
       <h3>
          <center>
             <div class="wrap">
@@ -53,15 +60,15 @@
                </div>
             </div>
          </center>
-         <form action="manage/select_timeclock.html" id="form1"></form>
+         <form action="manager_select_timeclock.html" id="form1"></form>
          <form action="welcome.html" id="form2"></form>
-         <form action="perform_logout" id="form3"></form>
+         <form action="..\perform_logout" id="form3"></form>
          <div id="employee_opt_buttons">
             <div class="zoomed">
                <center>
-                  <input type="image" form="form1" src="img\MixViewTimeOff.png" >
-                  <input type="image" form="form2" src="img\MixBackArrow.png">
-                  <input type="image" form="form3" src="img\MixHomeIcon.png">
+                  <input type="image" form="form1" src="..\img\MixViewTimeOff.png" >
+                  <input type="image" form="form2" src="..\img\MixBackArrow.png">
+                  <input type="image" form="form3" src="..\img\MixHomeIcon.png">
                </center>
             </div>
          </div>
