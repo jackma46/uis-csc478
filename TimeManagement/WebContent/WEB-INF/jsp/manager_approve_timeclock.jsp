@@ -10,7 +10,7 @@
       <script language="javascript" src="..\scripts\currenttime.js"></script>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
       <div class="zoomed2">
-         <img src="img\TeamGrammers.png" alt="Italian Trulli">
+         <img src="..\img\TeamGrammers.png" alt="Italian Trulli">
       </div>
    </header>
    <body>
