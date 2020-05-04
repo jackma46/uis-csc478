@@ -2,7 +2,7 @@
 <html>
    <header lang="en">
       <meta charset="utf-8" />
-      <title>Manager Select Timeclock</title>
+      <title>Manager Select Timeoff</title>
       <link href="..\css\style.css" rel="stylesheet">
       <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -89,7 +89,7 @@
       <form action="welcome.html" id="form2"></form>
       <form action="../perform_logout" id="form3"></form>
       <div id="employee_opt_buttons">
-         <div class="zoomed"> 
+         <div class="zoomed2"> 
             <input type="image" form="form1" src="..\img\MixCheck.png">
             <input type="image" form="form2" src="..\img\MixBackArrow.png">
             <input type="image" form="form3" src="..\img\MixHomeIcon.png">

@@ -24,12 +24,10 @@
       </h2>
       <div class="zoomed">
          <h5 id="headline">${tmContext.employeeName}</h5>
-       </div>
-      
+      </div>
       <h3>
          <center>
-            
-                <div class="wrap">
+            <div class="wrap">
                <table class="head" border="1" cellpadding="5">
                   <caption><b>List of Time Off Requests</b></caption>
                   <tr>
@@ -42,32 +40,32 @@
                      <th>Unpaid Requested</th>
                      <th>Status</th>
                   </tr>
-                  </table>
-                  <div class="inner_table">
+               </table>
+               <div class="inner_table">
                   <table>
-                  <c:forEach var="tm" items="${timeOffs}">
-                     <tr>
-                        <td>${tm.name}</td>
-                        <td>${tm.startDate}</td>
-                        <td>${tm.endDate}</td>
-                        <td>${tm.ptoRequested}</td>
-                        <td>${tm.sickRequested}</td>
-                        <td>${tm.floaterRequested}</td>
-                        <td>${tm.unpaidRequested}</td>
-                        <td>${tm.status}</td>
-                     </tr>
-                  </c:forEach>
-               </table>  
-               <br>
-               <br>
-             </div>
+                     <c:forEach var="tm" items="${timeOffs}">
+                        <tr>
+                           <td>${tm.name}</td>
+                           <td>${tm.startDate}</td>
+                           <td>${tm.endDate}</td>
+                           <td>${tm.ptoRequested}</td>
+                           <td>${tm.sickRequested}</td>
+                           <td>${tm.floaterRequested}</td>
+                           <td>${tm.unpaidRequested}</td>
+                           <td>${tm.status}</td>
+                        </tr>
+                     </c:forEach>
+                  </table>
+                  <br>
+                  <br>
                </div>
+            </div>
          </center>
          <form action="manager_select_timeoff.html" id="form1"></form>
          <form action="welcome.html" id="form2"></form>
          <form action="..\perform_logout" id="form3"></form>
          <div id="employee_opt_buttons">
-            <div class="zoomed">
+            <div class="zoomed2">
                <center>
                   <input type="image" form="form1" src="..\img\MixViewTimeOff.png" >
                   <input type="image" form="form2" src="..\img\MixBackArrow.png">

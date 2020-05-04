@@ -37,7 +37,7 @@
          <br>
          <br>
          <div id="employee_opt_buttons">
-            <div class="zoomed">
+            <div class="zoomed2">
                <center>
                   <input type="image" form="form1" src="..\img\MixManCalendar.png">
                   <input type="image" form="form2" src="..\img\MixTimeOff.png" >

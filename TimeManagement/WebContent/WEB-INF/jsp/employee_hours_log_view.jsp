@@ -29,29 +29,29 @@
       </div>
       <center>
          <div>
-           <div class="wrap">
-            <table border="1" cellpadding="5">
-               <caption><b>List of Time Clock Events</b></caption>
-               <tr>
-                  <th>Date</th>
-                  <th>Time In</th>
-                  <th>Time Out</th>
-                  <th>Status</th>
-               </tr>
-               </table>
-                <div class="inner_table">
-               <table>
-               <c:forEach var="tm" items="${timeClocks}">
+            <div class="wrap">
+               <table border="1" cellpadding="5">
+                  <caption><b>List of Time Clock Events</b></caption>
                   <tr>
-                     <td>${tm.formattedDate}</td>
-                     <td>${tm.timeIn}</td>
-                     <td>${tm.timeOut}</td>
-                     <td>${tm.status}</td>
+                     <th>Date</th>
+                     <th>Time In</th>
+                     <th>Time Out</th>
+                     <th>Status</th>
                   </tr>
-               </c:forEach>
-            </table>
-         </div>
-         </div>
+               </table>
+               <div class="inner_table">
+                  <table>
+                     <c:forEach var="tm" items="${timeClocks}">
+                        <tr>
+                           <td>${tm.formattedDate}</td>
+                           <td>${tm.timeIn}</td>
+                           <td>${tm.timeOut}</td>
+                           <td>${tm.status}</td>
+                        </tr>
+                     </c:forEach>
+                  </table>
+               </div>
+            </div>
          </div>
       </center>
    </body>
@@ -62,7 +62,7 @@
       <br>
       <br>
       <div id="employee_opt_buttons">
-         <div class="zoomed">
+         <div class="zoomed2">
             <center>
                <input type="image" form="form1" src="img\MixCalendar.png">
                <input type="image" form="form2" src="img\MixBackArrow.png" >

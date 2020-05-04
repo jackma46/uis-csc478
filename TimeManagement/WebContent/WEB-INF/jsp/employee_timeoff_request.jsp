@@ -8,7 +8,6 @@
       <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-      
       <div class="zoomed2">
          <img src="img\TeamGrammers.png" alt="Italian Trulli">
       </div>
@@ -17,30 +16,28 @@
       <div class="zoomed">
          <h1 id="headline">${tmContext.employeeName}</h1>
       </div>
-        
-            <table border="1" cellpadding="5" align="right">
-               <caption><b>Your available and used hours:</b></caption>
-               <tr>
-                  <th>PTO Available</th>
-                  <th>PTO Used</th>
-                  <th>Sick Available</th>
-                  <th>Sick Used</th>
-                  <th>Floater Available</th>
-                  <th>Floater Used</th>
-                  <th>Unpaid Used</th>
-               </tr>
-               <c:set var="tm" value="${employeeInfo}" />
-               <tr>
-                  <td>${tm.accruedPTO}</td>
-                  <td>${tm.usedPTO}</td>
-                  <td>${tm.availableSick}</td>
-                  <td>${tm.usedSick}</td>
-                  <td>${tm.availableFloater}</td>
-                  <td>${tm.usedFloater}</td>
-                  <td>${tm.usedUnpaid}</td>
-               </tr>
-            </table>
-     
+      <table border="1" cellpadding="5" align="right">
+         <caption><b>Your available and used hours:</b></caption>
+         <tr>
+            <th>PTO Available</th>
+            <th>PTO Used</th>
+            <th>Sick Available</th>
+            <th>Sick Used</th>
+            <th>Floater Available</th>
+            <th>Floater Used</th>
+            <th>Unpaid Used</th>
+         </tr>
+         <c:set var="tm" value="${employeeInfo}" />
+         <tr>
+            <td>${tm.accruedPTO}</td>
+            <td>${tm.usedPTO}</td>
+            <td>${tm.availableSick}</td>
+            <td>${tm.usedSick}</td>
+            <td>${tm.availableFloater}</td>
+            <td>${tm.usedFloater}</td>
+            <td>${tm.usedUnpaid}</td>
+         </tr>
+      </table>
       <script type="text/javascript">
          $( function() {
          	  var from = $( "#fromDate" )
@@ -72,26 +69,24 @@
          	  }
          	});
       </script>        
-         
       <form action="employee_timeoff_request.html" method="post" id="form1" autocomplete="off">
-       <div class="align">
-        <p> <label for="fromDate">Start Date: </label><input type="text" id="fromDate" name="startDate"><br><br></p>
-         <p> <label for="toDate">End Date: </label><input type="text" id="toDate" name="endDate"><br><br></p>
-         <p> <label for="get_pto">PTO Hours:</label><input type="number" id="pto" name="pto"><br><br></p>
-	    <p>  <label for="sick">Sick Hours:</label><input type="number" id="sick" name="sick"><br><br></p>
-	    <p>  <label for="floater">Floater Hours:</label><input type="number" id="floater" name="floater"></p>
-	    </div>
+         <div class="align">
+            <p> <label for="fromDate">Start Date: </label><input type="text" id="fromDate" name="startDate"><br><br></p>
+            <p> <label for="toDate">End Date: </label><input type="text" id="toDate" name="endDate"><br><br></p>
+            <p> <label for="get_pto">PTO Hours:</label><input type="number" id="pto" name="pto"><br><br></p>
+            <p>  <label for="sick">Sick Hours:</label><input type="number" id="sick" name="sick"><br><br></p>
+            <p>  <label for="floater">Floater Hours:</label><input type="number" id="floater" name="floater"></p>
+         </div>
       </form>
-    
       <form action="employee_timeoff_result.html" id="form2"></form>
       <form action="welcome.html" id="form3"></form>
       <form action="perform_logout" id="form4"></form>
       <div id="employee_opt_buttons">
-         <div class="zoomed">        
-               <input type="image" form="form1" src="img\MixCheck.png">
-               <input type="image" form="form2" src="img\MixViewTimeOff.png" >
-               <input type="image" form="form3" src="img\MixBackArrow.png">
-               <input type="image" form="form4" src="img\MixHomeIcon.png">           
+         <div class="zoomed2">        
+            <input type="image" form="form1" src="img\MixCheck.png">
+            <input type="image" form="form2" src="img\MixViewTimeOff.png" >
+            <input type="image" form="form3" src="img\MixBackArrow.png">
+            <input type="image" form="form4" src="img\MixHomeIcon.png">           
          </div>
       </div>
    </body>

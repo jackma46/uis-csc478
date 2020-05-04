@@ -14,51 +14,51 @@
       </div>
    </header>
    <body>
-   <div class="zoomed">
+      <div class="zoomed">
          <h1 id="headline">${tmContext.employeeName}</h1>
       </div>
-       <h2>
+      <h2>
          <div class="zoomed">
             <script language="javascript">
                var date = new Date();
                document.write(formatAMPM(date) + "<br>");
             </script>
          </div>
-      </h2>  
+      </h2>
       <div class="wrap">
-     <table class=head border="1" cellpadding="5">
-   	<caption><b>List of Time Off Requests</b></caption>
-    	<tr>
-      		<th>Start Date</th>
-      		<th>End Date</th>
-      		<th>PTO Requested</th>
-      		<th>Sick Requested</th>
-      		<th>Floater Requested</th>
-      		<th>Unpaid Requested</th>
-      		<th>Status</th>
-    		</tr>
-    		</table>
-    		 <div class="inner_table">
-    		<table>
-    <c:forEach var="tm" items="${timeOffRequests}">
-       	<tr>
-         	<td>${tm.startDate}</td>
-         	<td>${tm.endDate}</td>
-         	<td>${tm.ptoRequested}</td>
-         	<td>${tm.sickRequested}</td>
-         	<td>${tm.floaterRequested}</td>
-         	<td>${tm.unpaidRequested}</td>
-         	<td>${tm.status}</td>
-        </tr>
-    </c:forEach>
-</table>
-</div>
-</div>
+         <table class=head border="1" cellpadding="5">
+            <caption><b>List of Time Off Requests</b></caption>
+            <tr>
+               <th>Start Date</th>
+               <th>End Date</th>
+               <th>PTO Requested</th>
+               <th>Sick Requested</th>
+               <th>Floater Requested</th>
+               <th>Unpaid Requested</th>
+               <th>Status</th>
+            </tr>
+         </table>
+         <div class="inner_table">
+            <table>
+               <c:forEach var="tm" items="${timeOffRequests}">
+                  <tr>
+                     <td>${tm.startDate}</td>
+                     <td>${tm.endDate}</td>
+                     <td>${tm.ptoRequested}</td>
+                     <td>${tm.sickRequested}</td>
+                     <td>${tm.floaterRequested}</td>
+                     <td>${tm.unpaidRequested}</td>
+                     <td>${tm.status}</td>
+                  </tr>
+               </c:forEach>
+            </table>
+         </div>
+      </div>
       <form action="employee_timeoff_request.html" id="form1"></form>
       <form action="welcome.html" id="form2"></form>
       <form action="perform_logout" id="form3"></form>
       <div id="employee_opt_buttons">
-         <div class="zoomed">
+         <div class="zoomed2">
             <center>
                <input type="image" form="form1" src="img\MixReqTimeOff.png" >
                <input type="image" form="form2" src="img\MixBackArrow.png">

@@ -15,7 +15,7 @@
       </div>
    </header>
    <body>
-    <div class="zoomed">
+      <div class="zoomed">
          <h1 id="headline">Team Grammers</h1>
       </div>
       <h2>
@@ -29,7 +29,6 @@
       <div class="zoomed">
          <h1 id="headline">${tmContext.employeeName}</h1>
       </div>
-      
       <h3>
          <center>
             <div class="wrap">
@@ -64,7 +63,7 @@
          <form action="welcome.html" id="form2"></form>
          <form action="..\perform_logout" id="form3"></form>
          <div id="employee_opt_buttons">
-            <div class="zoomed">
+            <div class="zoomed2">
                <center>
                   <input type="image" form="form1" src="..\img\MixViewTimeOff.png" >
                   <input type="image" form="form2" src="..\img\MixBackArrow.png">
