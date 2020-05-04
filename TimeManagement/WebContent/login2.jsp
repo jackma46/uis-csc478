@@ -29,7 +29,6 @@
 
 
   <form action="perform_login" method="post">
-		<div class="zoomed">
    			<table>
  
    			<tr>
@@ -47,7 +46,6 @@
 			</tr>
 
 		    </table>
-		</div>
 				</form>
 
 
