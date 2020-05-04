@@ -115,7 +115,7 @@ h5 {
 }
 
 #calendar_opt_buttons  {
-  padding-top: 500px;
+  padding-top: 350px;
   word-spacing: 180px;
   text-align: center;
 }
@@ -153,6 +153,24 @@ div.resize {
   word-spacing: 300px;
 }
 
+.padding_right
+{
+	margin-left: 120px;
+	
+}
+
+#selectDate
+{
+    height:55px;
+	width: 40%;
+    font-size:30pt;
+	border-style: solid;
+	border-color: dodgerblue;
+	border-radius: 10px;
+	border-width: 4px;	
+	margin-left: 45px;
+	
+}
 
 #pto
 
@@ -230,23 +248,25 @@ div.resize {
 #employees
 {
     height:65px;
-	width: 60%;
+	width: 90%;
     font-size:36pt;
 	border-style: solid;
 	border-color: dodgerblue;
 	border-radius: 10px;
 	border-width: 4px;	
+	margin-left: 105px;
 }
 
 #status
 {
     height: 65px;
-	width: 60%;
+	width: 90%;
     font-size:36pt;
 	border-style: solid;
 	border-color: dodgerblue;
 	border-radius: 10px;
 	border-width: 4px;
+	margin-left: 105px;
 	
 }
 
@@ -319,10 +339,7 @@ tr:nth-child(even)
 	background-color: #a5a2a2
    }
 
-form  
-    { 
-    display: table;      
-    }
+
 
 p     
     { 
