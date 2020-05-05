@@ -70,7 +70,7 @@
          <form action="manager_select_timeclock.html" method=post id="form1" autocomplete="off">
             <p>
             <div class="padding_right">
-               <label for="fromDate">Please Select A Date:  <input type="text" id="selectDate" name="date"></label><br>
+               <label for="selectDate">Please Select A Date:  <input type="text" id="selectDate" name="date"></label><br>
             </div>
             </p>
             <p>

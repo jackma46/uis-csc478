@@ -68,7 +68,7 @@
          <div id="employee_opt_buttons">
             <div class="zoomed2">
                <center>
-                  <input type="image" form="form1" src="..\img\MixViewTimeOff.png" >
+                  <input type="image" form="form1" src="..\img\MixClockView.png" >
                   <input type="image" form="form2" src="..\img\MixBackArrow.png">
                   <input type="image" form="form3" src="..\img\MixHomeIcon.png">
                </center>
