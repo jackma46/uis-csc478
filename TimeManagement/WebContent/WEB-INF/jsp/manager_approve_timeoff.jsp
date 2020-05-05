@@ -11,6 +11,7 @@
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script language="javascript" src="..\scripts\currenttime.js"></script>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
       <div class="zoomed2">
          <img src="..\img\TeamGrammers.png" alt="Italian Trulli">
       </div>
@@ -44,26 +45,13 @@
             </script>
             <script type='text/javascript'>
                $(document).ready(function() {
-               	  $('#chkParent').click(function() {
-               	    var isChecked = $(this).prop("checked");
-               	    $('#tblData tr:has(td)').find('input[type="checkbox"]').prop('checked', isChecked);
+               	  $('#allcb').click(function() {
+                     var checked = this.checked;
+                     $('input[type="checkbox"]').each(function() {
+                       this.checked = checked;
+                     });
+                   })
                	  });
-               
-               	  $('#tblData tr:has(td)').find('input[type="checkbox"]').click(function() {
-               	    var isChecked = $(this).prop("checked");
-               	    var isHeaderChecked = $("#chkParent").prop("checked");
-               	    if (isChecked == false && isHeaderChecked)
-               	      $("#chkParent").prop('checked', isChecked);
-               	    else {
-               	      $('#tblData tr:has(td)').find('input[type="checkbox"]').each(function() {
-               	        if ($(this).prop("checked") == false)
-               	          isChecked = false;
-               	      });
-               	      console.log(isChecked);
-               	      $("#chkParent").prop('checked', isChecked);
-               	    }
-               	  });
-               	});
             </script>
          </div>
       </h2>
@@ -74,23 +62,23 @@
          <div>
             <form action="manager_approve_timeoff.html" method="post" id="form1">
                <input type="hidden" id="status" name="newStatus" value="APPROVE">
-               <div class="table-wrapper-scroll-y my-custom-scrollbar wrap">
-                  <table class="table table-bordered table-striped mb-0" id="tblData">
+               <div class="wrap">
+                  <table class="head" border="1" cellpadding="5">
                      <caption><b>List of Time Off Requests</b></caption>
-                     <thead>
-                        <tr>
-                           <th><input type="checkbox" id="chkParent" name="chkParent" align="center"></th>
-                           <th>Name</th>
-                           <th>Start Date</th>
-                           <th>End Date</th>
-                           <th>PTO Requested</th>
-                           <th>Sick Requested</th>
-                           <th>Floater Requested</th>
-                           <th>Unpaid Requested</th>
-                           <th>Status</th>
-                        </tr>
-                     </thead>
-                     <tbody>
+                     <tr>
+                        <th><input type="checkbox" id="allcb" name="allcb"></th>
+                        <th>Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>PTO Requested</th>
+                        <th>Sick Requested</th>
+                        <th>Floater Requested</th>
+                        <th>Unpaid Requested</th>
+                        <th>Status</th>
+                     </tr>
+                  </table>
+                  <div class="inner_table">
+                     <table>
                         <c:forEach var="tm" items="${timeOffs}">
                            <tr>
                               <td><input type="checkbox" id="${tm.timeOffId}" value="${tm.timeOffId}" name="timeOffIds">
@@ -104,8 +92,8 @@
                               <td>${tm.status}</td>
                            </tr>
                         </c:forEach>
-                     </tbody>
-                  </table>
+                     </table>
+                  </div>
                </div>
             </form>
             <br>

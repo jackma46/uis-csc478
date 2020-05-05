@@ -35,26 +35,13 @@
             </script>
             <script type='text/javascript'>
                $(document).ready(function() {
-               	  $('#chkParent').click(function() {
-               	    var isChecked = $(this).prop("checked");
-               	    $('#tblData tr:has(td)').find('input[type="checkbox"]').prop('checked', isChecked);
-               	  });
-               
-               	  $('#tblData tr:has(td)').find('input[type="checkbox"]').click(function() {
-               	    var isChecked = $(this).prop("checked");
-               	    var isHeaderChecked = $("#chkParent").prop("checked");
-               	    if (isChecked == false && isHeaderChecked)
-               	      $("#chkParent").prop('checked', isChecked);
-               	    else {
-               	      $('#tblData tr:has(td)').find('input[type="checkbox"]').each(function() {
-               	        if ($(this).prop("checked") == false)
-               	          isChecked = false;
-               	      });
-               	      console.log(isChecked);
-               	      $("#chkParent").prop('checked', isChecked);
-               	    }
-               	  });
-               	});
+                $('#allcb').click(function() {
+                   var checked = this.checked;
+                   $('input[type="checkbox"]').each(function() {
+                     this.checked = checked;
+                   });
+                 })
+                });
             </script>
          </div>
       </h2>
@@ -64,28 +51,32 @@
       <h3>
          <form action="manager_approve_timeclock.html" method="post" id="form1">
             <div>
-               <div class="table-wrapper-scroll-y my-custom-scrollbar wrap">
-                  <table class="table table-bordered table-striped mb-0" id="tblData">
+               <div class="wrap">
+                  <table class="head" border="1" cellpadding="5">
                      <caption><b>List of Time Clock Events</b></caption>
                      <tr>
-                        <th><input type="checkbox" id="chkParent"></th>
+                        <th><input type="checkbox" id="allcb" name="allcb"></th>
                         <th>Name</th>
                         <th>Date</th>
                         <th>Time In</th>
                         <th>Time Out</th>
                         <th>Status</th>
                      </tr>
-                     <c:forEach var="tm" items="${timeClocks}">
-                        <tr>
-                           <td><input type="checkbox" id="${tm.timeClockId}" value="${tm.timeClockId}" name="timeClockIds">
-                           <td>${tm.name}</td>
-                           <td>${tm.formattedDate}</td>
-                           <td>${tm.timeIn}</td>
-                           <td>${tm.timeOut}</td>
-                           <td>${tm.status}</td>
-                        </tr>
-                     </c:forEach>
                   </table>
+                  <div class="inner_table">
+                     <table>
+                        <c:forEach var="tm" items="${timeClocks}">
+                           <tr>
+                              <td><input type="checkbox" id="${tm.timeClockId}" value="${tm.timeClockId}" name="timeClockIds">
+                              <td>${tm.name}</td>
+                              <td>${tm.formattedDate}</td>
+                              <td>${tm.timeIn}</td>
+                              <td>${tm.timeOut}</td>
+                              <td>${tm.status}</td>
+                           </tr>
+                        </c:forEach>
+                     </table>
+                  </div>
                </div>
             </div>
          </form>
