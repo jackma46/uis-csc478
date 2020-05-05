@@ -22,7 +22,50 @@
             <script language="javascript">
                var date = new Date();
                document.write(formatAMPM(date) + "<br>");
+               
+               $( function() {
+            		  $("#submit_form_info").submit(function() {
+            			  $("#form1").submit();
+            			  return false;
+            		  });
+            	  });
+               
+               
+               $( function() {
+            		  $("#submit_form_info2").submit(function() {
+            			  $("#status").val("REJECTED")
+            			  $("#form1").submit();
+            			  return false;
+            		  });
+            	  });
+               
             </script>
+            
+             <script type='text/javascript'>
+            $(document).ready(function() {
+            	  $('#chkParent').click(function() {
+            	    var isChecked = $(this).prop("checked");
+            	    $('#tblData tr:has(td)').find('input[type="checkbox"]').prop('checked', isChecked);
+            	  });
+
+            	  $('#tblData tr:has(td)').find('input[type="checkbox"]').click(function() {
+            	    var isChecked = $(this).prop("checked");
+            	    var isHeaderChecked = $("#chkParent").prop("checked");
+            	    if (isChecked == false && isHeaderChecked)
+            	      $("#chkParent").prop('checked', isChecked);
+            	    else {
+            	      $('#tblData tr:has(td)').find('input[type="checkbox"]').each(function() {
+            	        if ($(this).prop("checked") == false)
+            	          isChecked = false;
+            	      });
+            	      console.log(isChecked);
+            	      $("#chkParent").prop('checked', isChecked);
+            	    }
+            	  });
+            	});
+ </script>
+
+            
          </div>
       </h2>
       <div class="zoomed">
@@ -31,6 +74,7 @@
       <h3>
             <div>
                <form action="manager_approve_timeoff.html" method="post" id="form1">
+               <input type="hidden" id="status" name="newStatus" value="APPROVE">
                   <div class="wrap">
                      <table class="head" border="1" cellpadding="5">
                         <caption><b>List of Time Off Requests</b></caption>
@@ -50,7 +94,7 @@
                         <table>
                            <c:forEach var="tm" items="${timeOffs}">
                               <tr>
-                                 <td><input type="checkbox" id="${tm.timeOffId}" value="${tm.timeOffId}" name="timeOffIds[]">
+                                 <td><input type="checkbox" id="${tm.timeOffId}" value="${tm.timeOffId}" name="timeOffIds">
                                  <td>${tm.name}</td>
                                  <td>${tm.startDate}</td>
                                  <td>${tm.endDate}</td>
@@ -76,7 +120,8 @@
             <div class="zoomed2">
                <center>
                   <input type="image" form="submit_form_info" src="..\img\MixCheck.png">
-                  <input type="image" form="submit_form_info2" src="..\img\MixX.png">
+                  <input type="hidden"  form="submit_form_info2">
+			       <input type="image" form="submit_form_info2" src="..\img\MixX.png">  
                   <input type="image" form="form3" src="..\img\MixViewTimeOff.png">
                   <input type="image" form="form4" src="..\img\MixBackArrow.png">
                </center>

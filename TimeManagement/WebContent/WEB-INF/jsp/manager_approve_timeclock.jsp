@@ -9,6 +9,12 @@
       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script language="javascript" src="..\scripts\currenttime.js"></script>
       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+      
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<link rel="stylesheet" href="/resources/demos/style.css">
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      
       <div class="zoomed2">
          <img src="..\img\TeamGrammers.png" alt="Italian Trulli">
       </div>
@@ -21,8 +27,42 @@
          <div class="zoomed">
             <script language="javascript">
                var date = new Date();
-               document.write(formatAMPM(date) + "<br>");
+               document.write(formatAMPM(date) + "<br>");        
+               
+               $( function() {
+             	  $("#submit_form_info").submit(function() {
+             		  $("#form1").submit();
+             		  return false;
+             	  });
+               });
+               
             </script>
+            
+            <script type='text/javascript'>
+            $(document).ready(function() {
+            	  $('#chkParent').click(function() {
+            	    var isChecked = $(this).prop("checked");
+            	    $('#tblData tr:has(td)').find('input[type="checkbox"]').prop('checked', isChecked);
+            	  });
+
+            	  $('#tblData tr:has(td)').find('input[type="checkbox"]').click(function() {
+            	    var isChecked = $(this).prop("checked");
+            	    var isHeaderChecked = $("#chkParent").prop("checked");
+            	    if (isChecked == false && isHeaderChecked)
+            	      $("#chkParent").prop('checked', isChecked);
+            	    else {
+            	      $('#tblData tr:has(td)').find('input[type="checkbox"]').each(function() {
+            	        if ($(this).prop("checked") == false)
+            	          isChecked = false;
+            	      });
+            	      console.log(isChecked);
+            	      $("#chkParent").prop('checked', isChecked);
+            	    }
+            	  });
+            	});
+ </script>
+            
+            
          </div>
       </h2>
       <div class="zoomed">
@@ -35,7 +75,7 @@
                      <table class="head" border="1" cellpadding="5" align="center">
                         <caption><b>List of Time Clock Events</b></caption>
                         <tr>
-                           <th><input type="checkbox" id="allcb" name="allcb"></th>
+                           <th><input type="checkbox" id="chkParent"></th>
                            <th>Name</th>
                            <th>Date</th>
                            <th>Time In</th>
@@ -47,7 +87,7 @@
                         <table>
                            <c:forEach var="tm" items="${timeClocks}">
                               <tr>
-                                 <td><input type="checkbox" id="${tm.timeClockId}" value="${tm.timeClockId}" name="timeClockIds[]">
+                                 <td><input type="checkbox" id="${tm.timeClockId}" value="${tm.timeClockId}" name="timeClockIds">
                                  <td>${tm.name}</td>
                                  <td>${tm.formattedDate}</td>
                                  <td>${tm.timeIn}</td>
@@ -62,16 +102,15 @@
             </form>
          <br>
          <br>
+         <form action="" id="submit_form_info"></form>
          <form action="manager_select_timeclock.html" id="form2"></form>
          <form action="welcome.html" id="form3"></form>
-         <form action="../perform_logout" id="form4"></form>
          <div id="employee_opt_buttons">
             <div class="zoomed2">
                <center>
                   <input type="image" form="submit_form_info" src="..\img\MixCheck.png">
                   <input type="image" form="form2" src="..\img\MixCalendar.png">
                   <input type="image" form="form3" src="..\img\MixBackArrow.png">
-                  <input type="image" form="form4" src="..\img\MixHomeIcon.png">
                </center>
             </div>
          </div>
