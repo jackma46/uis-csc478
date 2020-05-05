@@ -7,6 +7,7 @@
 <!--This the wrapper JSP, this template will be used for all other JSPs.-->
 
 <head>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<meta charset="ISO-8859-1">
 	<title>Time Management System</title>
 	<link rel="stylesheet"  href="${pageContext.request.contextPath}/css/style2.css">
