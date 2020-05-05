@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>TeamGrammers</groupId>
 	<artifactId>TimeManagement</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1-Release</version>
 	<packaging>war</packaging>
 	<name>TimeManagement</name>
 	
