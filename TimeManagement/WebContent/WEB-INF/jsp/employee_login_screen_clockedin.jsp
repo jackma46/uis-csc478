@@ -1,3 +1,6 @@
+<!--This is the employee clock in page, the user should see the option to clock in or access other modules. 
+	Requirement 2.0.0 & 2.1.0-->
+
 <!DOCTYPE html>
 <html lang="en">
    </article>

@@ -1,3 +1,6 @@
+<!--This is the manager select time clock page. The user can specify the employee, the date, and the status of time clock events to display.
+	Requirement 3.1.3 & 3.1.4-->
+
 <!DOCTYPE html>	
 <html>
    <header lang="en">
@@ -49,6 +52,13 @@
                return date;
                }
                });
+                
+                $( function() {
+               	  $("#submit_form_info").submit(function() {
+               		  $("#form1").submit();
+               		  return false;
+               	  });
+                 });
                
             </script>      
       </h2>
@@ -85,11 +95,12 @@
             </p>
          </form>
       </center>
+      <form action="" id="submit_form_info"></form>
       <form action="welcome.html" id="form2"></form>
       <form action="../perform_logout" id="form3"></form>
       <div id="employee_opt_buttons">
          <div class="zoomed2"> 
-            <input type="image" form="form1" src="..\img\MixCheck.png">
+            <input type="image" form="submit_form_info" src="..\img\MixCheck.png">
             <input type="image" form="form2" src="..\img\MixBackArrow.png">
             <input type="image" form="form3" src="..\img\MixHomeIcon.png">
          </div>

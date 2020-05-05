@@ -1,3 +1,5 @@
+<!--This is the manager select time clock page. The user can specify the employee, the date, and the status of time clock events to display.
+   Requirement 3.1.3 & 3.1.4-->
 <!DOCTYPE html>	
 <html>
    <header lang="en">
@@ -24,62 +26,60 @@
                document.write(formatAMPM(date) + "<br>");
                
                $( function() {
-            		  $("#submit_form_info").submit(function() {
-            			  $("#form1").submit();
-            			  return false;
-            		  });
-            	  });
+                $("#submit_form_info").submit(function() {
+                 $("#form1").submit();
+                 return false;
+                });
+               });
                
                
                $( function() {
-            		  $("#submit_form_info2").submit(function() {
-            			  $("#status").val("REJECTED")
-            			  $("#form1").submit();
-            			  return false;
-            		  });
-            	  });
+                $("#submit_form_info2").submit(function() {
+                 $("#status").val("REJECTED")
+                 $("#form1").submit();
+                 return false;
+                });
+               });
                
             </script>
-            
-             <script type='text/javascript'>
-            $(document).ready(function() {
-            	  $('#chkParent').click(function() {
-            	    var isChecked = $(this).prop("checked");
-            	    $('#tblData tr:has(td)').find('input[type="checkbox"]').prop('checked', isChecked);
-            	  });
-
-            	  $('#tblData tr:has(td)').find('input[type="checkbox"]').click(function() {
-            	    var isChecked = $(this).prop("checked");
-            	    var isHeaderChecked = $("#chkParent").prop("checked");
-            	    if (isChecked == false && isHeaderChecked)
-            	      $("#chkParent").prop('checked', isChecked);
-            	    else {
-            	      $('#tblData tr:has(td)').find('input[type="checkbox"]').each(function() {
-            	        if ($(this).prop("checked") == false)
-            	          isChecked = false;
-            	      });
-            	      console.log(isChecked);
-            	      $("#chkParent").prop('checked', isChecked);
-            	    }
-            	  });
-            	});
- </script>
-
-            
+            <script type='text/javascript'>
+               $(document).ready(function() {
+               	  $('#chkParent').click(function() {
+               	    var isChecked = $(this).prop("checked");
+               	    $('#tblData tr:has(td)').find('input[type="checkbox"]').prop('checked', isChecked);
+               	  });
+               
+               	  $('#tblData tr:has(td)').find('input[type="checkbox"]').click(function() {
+               	    var isChecked = $(this).prop("checked");
+               	    var isHeaderChecked = $("#chkParent").prop("checked");
+               	    if (isChecked == false && isHeaderChecked)
+               	      $("#chkParent").prop('checked', isChecked);
+               	    else {
+               	      $('#tblData tr:has(td)').find('input[type="checkbox"]').each(function() {
+               	        if ($(this).prop("checked") == false)
+               	          isChecked = false;
+               	      });
+               	      console.log(isChecked);
+               	      $("#chkParent").prop('checked', isChecked);
+               	    }
+               	  });
+               	});
+            </script>
          </div>
       </h2>
       <div class="zoomed">
          <h5 id="headline">${tmContext.employeeName}</h5>
       </div>
       <h3>
-            <div>
-               <form action="manager_approve_timeoff.html" method="post" id="form1">
+         <div>
+            <form action="manager_approve_timeoff.html" method="post" id="form1">
                <input type="hidden" id="status" name="newStatus" value="APPROVE">
-                  <div class="wrap">
-                     <table class="head" border="1" cellpadding="5">
-                        <caption><b>List of Time Off Requests</b></caption>
+               <div class="table-wrapper-scroll-y my-custom-scrollbar wrap">
+                  <table class="table table-bordered table-striped mb-0" id="tblData">
+                     <caption><b>List of Time Off Requests</b></caption>
+                     <thead>
                         <tr>
-                           <th><input type="checkbox" id="allcb" name="allcb"></th>
+                           <th><input type="checkbox" id="chkParent" name="chkParent" align="center"></th>
                            <th>Name</th>
                            <th>Start Date</th>
                            <th>End Date</th>
@@ -89,29 +89,28 @@
                            <th>Unpaid Requested</th>
                            <th>Status</th>
                         </tr>
-                     </table>
-                     <div class="inner_table">
-                        <table>
-                           <c:forEach var="tm" items="${timeOffs}">
-                              <tr>
-                                 <td><input type="checkbox" id="${tm.timeOffId}" value="${tm.timeOffId}" name="timeOffIds">
-                                 <td>${tm.name}</td>
-                                 <td>${tm.startDate}</td>
-                                 <td>${tm.endDate}</td>
-                                 <td>${tm.ptoRequested}</td>
-                                 <td>${tm.sickRequested}</td>
-                                 <td>${tm.floaterRequested}</td>
-                                 <td>${tm.unpaidRequested}</td>
-                                 <td>${tm.status}</td>
-                              </tr>
-                           </c:forEach>
-                        </table>
-                     </div>
-                  </div>
-               </form>
-               <br>
-               <br>
-            </div>
+                     </thead>
+                     <tbody>
+                        <c:forEach var="tm" items="${timeOffs}">
+                           <tr>
+                              <td><input type="checkbox" id="${tm.timeOffId}" value="${tm.timeOffId}" name="timeOffIds">
+                              <td>${tm.name}</td>
+                              <td>${tm.startDate}</td>
+                              <td>${tm.endDate}</td>
+                              <td>${tm.ptoRequested}</td>
+                              <td>${tm.sickRequested}</td>
+                              <td>${tm.floaterRequested}</td>
+                              <td>${tm.unpaidRequested}</td>
+                              <td>${tm.status}</td>
+                           </tr>
+                        </c:forEach>
+                     </tbody>
+                  </table>
+               </div>
+            </form>
+            <br>
+            <br>
+         </div>
          <form action="" id="submit_form_info"></form>
          <form action="" id="submit_form_info2"></form>
          <form action="manager_select_timeoff.html" id="form3"></form>
@@ -121,7 +120,7 @@
                <center>
                   <input type="image" form="submit_form_info" src="..\img\MixCheck.png">
                   <input type="hidden"  form="submit_form_info2">
-			       <input type="image" form="submit_form_info2" src="..\img\MixX.png">  
+                  <input type="image" form="submit_form_info2" src="..\img\MixX.png">  
                   <input type="image" form="form3" src="..\img\MixViewTimeOff.png">
                   <input type="image" form="form4" src="..\img\MixBackArrow.png">
                </center>

@@ -1,3 +1,6 @@
+<!--This is the manager home screen, the user should see the option approve time clock events or time off requests. 
+	Requirement 3.0.0-->
+
 <!DOCTYPE html>
 <html lang="en">
    </article>

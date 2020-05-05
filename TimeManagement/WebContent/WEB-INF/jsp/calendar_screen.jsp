@@ -1,3 +1,6 @@
+  <!--This is the calendar_screen page, the user should be able to pick a date from a drop down.
+	Requirement 2.2.1-->
+
 <!DOCTYPE html>	
 <html>
    <header lang="en">
