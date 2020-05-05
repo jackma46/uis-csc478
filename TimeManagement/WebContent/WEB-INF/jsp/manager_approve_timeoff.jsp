@@ -61,7 +61,7 @@
       <h3>
          <div>
             <form action="manager_approve_timeoff.html" method="post" id="form1">
-               <input type="hidden" id="status" name="newStatus" value="APPROVE">
+               <input type="hidden" id="status" name="newStatus" value="APPROVED">
                <div class="wrap">
                   <table class="head" border="1" cellpadding="5">
                      <caption><b>List of Time Off Requests</b></caption>
