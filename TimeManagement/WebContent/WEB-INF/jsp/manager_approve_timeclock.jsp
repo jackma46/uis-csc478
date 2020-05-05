@@ -89,7 +89,7 @@
             <div class="zoomed2">
                <center>
                   <input type="image" form="submit_form_info" src="..\img\MixCheck.png">
-                  <input type="image" form="form2" src="..\img\MixCalendar.png">
+                  <input type="image" form="form2" src="..\img\MixClockView.png">
                   <input type="image" form="form3" src="..\img\MixBackArrow.png">
                </center>
             </div>

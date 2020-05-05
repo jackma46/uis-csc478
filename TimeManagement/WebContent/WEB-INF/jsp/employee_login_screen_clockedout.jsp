@@ -39,7 +39,7 @@
             <div class="zoomed2">
                <center>
                   <input type="image" form="form1" src="img\MixClockOut.png">
-                  <input type="image" form="form2" src="img\MixCalendar.png">
+                  <input type="image" form="form2" src="img\MixClockView.png">
                   <input type="image" form="form3" src="img\MixTimeOff.png" >
                   <input type="image" form="form4" src="img\MixHomeIcon.png">
                </center>
