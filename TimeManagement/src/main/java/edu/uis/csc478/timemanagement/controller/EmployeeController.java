@@ -150,7 +150,7 @@ public class EmployeeController {
 				return showTimeOffRequests();
 			}
 			
-			float unpaid = days * 8 - PTO - sick - floater;
+			float unpaid = (days * 8) - PTO - sick - floater;
 			String employeeName = employeeInfo.getName();
 			// Make a new TimeOff object based on the request and user's employee information with REQUESTED status.
 			TimeOff timeOff = new TimeOff();
@@ -161,6 +161,7 @@ public class EmployeeController {
 			timeOff.setPtoRequested(PTO);
 			timeOff.setSickRequested(sick);
 			timeOff.setFloaterRequested(floater);
+			timeOff.setUnpaidRequested(unpaid);
 			timeOff.setStatus(TimeOff.Status.REQUESTED);
 			// Update the user's hours based on the requested hours.
 			timeManagementRepository.updateEmployeeTimeOff(id, PTO, sick, floater, unpaid);
