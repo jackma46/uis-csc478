@@ -1,3 +1,6 @@
+<!--This is the employee view time clock page, the user should be to view time clock events in a table. 
+	Requirement 2.2.2-->
+
 <!DOCTYPE html>
 <html lang="en">
    </article>

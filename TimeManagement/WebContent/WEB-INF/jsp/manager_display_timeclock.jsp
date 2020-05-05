@@ -1,3 +1,6 @@
+  <!--This is the manager display time clock page. The user should all the selected time clock events in a table.
+	Requirement 3.1.5-->
+
 <!DOCTYPE html>	
 <html>
    <header lang="en">

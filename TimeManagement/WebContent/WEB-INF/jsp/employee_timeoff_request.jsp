@@ -1,3 +1,6 @@
+<!--This is the employee view time off request page. The user should see their available and used hours in a table and enter the dates and hours for their new request.
+	Requirement 2.3.2 & 2.3.3-->
+
 <!DOCTYPE html>	
 <html>
    <header lang="en">

@@ -1,3 +1,6 @@
+<!--This is the manager display time off page. The user should see all the selected time off requests in a table. 
+	Requirement 3.2.5-->
+
 <!DOCTYPE html>	
 <html>
    <header lang="en">

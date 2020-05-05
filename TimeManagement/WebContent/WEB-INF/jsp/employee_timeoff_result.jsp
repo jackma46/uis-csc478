@@ -1,3 +1,6 @@
+<!--This is the employee view time off request page, the user should be able to view time off requests in a table.
+	Requirement 2.3.1 & 2.3.5-->
+
 <!DOCTYPE html>	
 <html>
    <header lang="en">

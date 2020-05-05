@@ -1,3 +1,6 @@
+  <!--This is the manager select time off page. The user can specify the employee and the status of requests to display.
+	Requirement 3.2.3 & 3.2.4-->
+
 <!DOCTYPE html>	
 <html>
    <header lang="en">
