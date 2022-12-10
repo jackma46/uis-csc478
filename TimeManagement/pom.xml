@@ -9,7 +9,7 @@
 	<name>TimeManagement</name>
 	
 	<properties>
-	    <spring.version>5.2.3.RELEASE</spring.version>
+	    <spring.version>6.0.0</spring.version>
 	    <spring-security.version>5.2.3.RELEASE</spring-security.version>
 	    <slf4j.version>1.7.30</slf4j.version>
 	</properties>
